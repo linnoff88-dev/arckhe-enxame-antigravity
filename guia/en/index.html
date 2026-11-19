@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Swarm Sheet — Google Antigravity’s /swarm without the chaos</title>
+<meta name="description" content="Before typing /swarm in Google Antigravity, write the Swarm Sheet: who owns what, what each agent must leave alone, when it is done, who checks it, and when to stop. Free kit with a checker that scores from 0 to 8.">
+<link rel="alternate" hreflang="pt-BR" href="https://inematds.github.io/enxame-antigravity/guia/">
+<link rel="alternate" hreflang="en" href="https://inematds.github.io/enxame-antigravity/guia/en/">
+<link rel="alternate" hreflang="es" href="https://inematds.github.io/enxame-antigravity/guia/es/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0c0c10; --bg2:#14141b; --card:#16161e; --line:#272730;
+    --txt:#e9e9ee; --mut:#9a9aa6; --amb:#FACC15; --amb2:#f0c070; --sky:#38bdf8; --pro:#cbd5e1;
+    color-scheme:dark;
+  }
+  body.light{
+    --bg:#f6f7f9; --bg2:#eceef2; --card:#ffffff; --line:#e1e3ea;
+    --txt:#1a1a22; --mut:#5b5b68; --amb:#a16207; --amb2:#a16207; --sky:#0369a1; --pro:#b45309;
+    color-scheme:light;
+  }
+  body.light .hero .glow{opacity:.5}
+  body.light pre{background:#0e0e14;color:#d6d6e0}
+  body.light pre .c{color:#8a8a98}
+  body.light pre .k{color:#f0c070}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--txt);font:16px/1.65 Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+  h1,h2,h3{font-family:Sora,sans-serif;line-height:1.15;margin:0}
+  a{color:var(--amb);text-decoration:none}
+  code,pre{font-family:"JetBrains Mono",monospace}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+  .mut{color:var(--mut)} .amb{color:var(--amb)}
+  .chip{display:inline-block;font-size:.75rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amb);font-weight:600;font-family:Sora}
+  nav{position:sticky;top:0;z-index:30;backdrop-filter:blur(12px);background:rgba(12,12,16,.78);border-bottom:1px solid var(--line)}
+  body.light nav{background:rgba(246,247,249,.85)}
+  nav .wrap{display:flex;align-items:center;gap:22px;height:60px}
+  nav .brand{display:flex;align-items:center;gap:8px;font-family:Sora;font-weight:800;letter-spacing:-.02em;color:var(--amb)}
+  nav .brand .emoji{font-size:1.25rem}
+  nav .sep{color:var(--mut);opacity:.45}
+  nav .inema{color:var(--sky);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .inema:hover{filter:brightness(1.15)}
+  nav .pro{color:var(--pro);font-weight:600;font-size:.88rem;font-family:Sora}
+  nav .pro:hover{filter:brightness(1.15)}
+  nav .clubpro{display:inline-flex;align-items:center;gap:6px}
+  nav .links{margin-left:auto;display:flex;align-items:center;gap:16px;font-size:.86rem}
+  nav .brand,nav .links a{white-space:nowrap}
+  nav .links a.sec{color:var(--mut)} nav .links a.sec:hover{color:var(--txt)}
+  .lang{display:inline-flex;gap:2px;font-family:Sora;font-size:.78rem}
+  .lang a{color:var(--mut);padding:.2em .45em;border-radius:6px} .lang a.on{color:var(--amb);background:rgba(250,204,21,.12)}
+  .tgl{background:var(--bg2);border:1px solid var(--line);color:var(--txt);width:38px;height:38px;border-radius:10px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;font-size:1.05rem}
+  .tgl:hover{border-color:var(--amb)}
+  .btn{display:inline-block;background:var(--amb);color:#1a1206;font-weight:600;padding:.6em 1.05em;border-radius:10px;font-family:Sora}
+  body.light .btn{background:#FACC15;color:#1a1206}
+  .btn.ghost{background:transparent;color:var(--txt);border:1px solid var(--line)}
+  @media(max-width:1100px){nav .links a.sec{display:none}}
+  @media(max-width:520px){nav .wrap{gap:8px;padding:8px 14px;height:auto;flex-wrap:wrap} nav .links{gap:8px;margin-left:0;width:100%;justify-content:space-between} nav .btn{padding:.45em .7em;font-size:.82rem} .tgl{width:34px;height:34px}}
+  .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero .glow{position:absolute;inset:-40% -20% auto auto;width:70%;height:600px;background:radial-gradient(closest-side,rgba(250,204,21,.18),transparent 70%);pointer-events:none}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;padding:70px 22px}
+  .hero h1{font-size:clamp(1.9rem,4vw,2.7rem);font-weight:800;letter-spacing:-.025em}
+  .hero p.lead{font-size:1.15rem;color:var(--mut);margin:1.1em 0 1.6em;max-width:44ch}
+  .hero .cta{display:flex;gap:12px;flex-wrap:wrap}
+  .hero figure{margin:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px -30px #000}
+  .hero figure img{width:100%;height:auto;display:block}
+  .resumo{padding:38px 0 34px;border-bottom:1px solid var(--line)}
+  .resumo p{font-size:1.12rem;line-height:1.7;max-width:74ch;margin:.55em 0 0}
+  .bigfig{margin:28px 0 0;border-radius:16px;overflow:hidden;border:1px solid var(--line)}
+  .bigfig img{width:100%;display:block;height:auto}
+  @media(max-width:780px){.hero .wrap{grid-template-columns:1fr;padding:44px 22px}}
+  section{padding:62px 0;border-bottom:1px solid var(--line)}
+  section h2{font-size:clamp(1.5rem,3.4vw,2.1rem);font-weight:800;letter-spacing:-.02em}
+  section .sub{color:var(--mut);margin:.6em 0 2em;max-width:66ch}
+  .grid{display:grid;gap:16px}
+  .g3{grid-template-columns:repeat(3,1fr)} .g4{grid-template-columns:repeat(4,1fr)} .g2{grid-template-columns:repeat(2,1fr)}
+  @media(max-width:820px){.g3,.g4{grid-template-columns:1fr 1fr}}
+  @media(max-width:540px){.g2,.g3,.g4{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{font-size:1.05rem;margin-bottom:.4em}
+  .card p{color:var(--mut);font-size:.94rem;margin:0}
+  .card ul{color:var(--mut);font-size:.94rem;margin:.3em 0 0;padding-left:1.1em}
+  .flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:10px 0 26px}
+  .flow span{background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:.45em .9em;font-size:.86rem;font-family:Sora;font-weight:600}
+  .flow .arr{color:var(--amb);border:none;background:none;padding:0 .1em}
+  pre{background:#0a0a0e;border:1px solid var(--line);border-radius:12px;padding:16px 18px;overflow:auto;font-size:.84rem;line-height:1.6;color:#d6d6e0;white-space:pre-wrap;overflow-wrap:anywhere}
+  pre .c{color:#7d7d8a} pre .k{color:var(--amb2)} pre .s{color:#9ece6a} pre .bad{color:#f28b82}
+  .step{display:grid;grid-template-columns:46px minmax(0,1fr);gap:16px;margin-bottom:28px}
+  .step>div,.card{min-width:0}
+  p code,li code,td code{overflow-wrap:anywhere;font-size:.88em;background:var(--bg2);border:1px solid var(--line);border-radius:6px;padding:.05em .35em}
+  .step .b{width:46px;height:46px;border-radius:12px;background:#FACC15;color:#1a1206;font-family:Sora;font-weight:800;font-size:1.25rem;display:flex;align-items:center;justify-content:center}
+  .step h3{font-size:1.12rem;margin-bottom:.3em}
+  .step p{color:var(--mut);margin:.2em 0 .7em}
+  .ex{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  @media(max-width:680px){.ex{grid-template-columns:1fr}}
+  .ex figure{margin:0;border-radius:14px;overflow:hidden;border:1px solid var(--line)}
+  .ex figure img{width:100%;height:auto;display:block}
+  .ex figcaption{padding:12px 14px;font-size:.88rem;color:var(--mut);background:var(--card)}
+  .ex figcaption small{display:block;margin-top:.3em;opacity:.8}
+  .phase{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .phase:last-child{border:none}
+  .phase .tag{flex:0 0 92px;font-family:Sora;font-weight:800;color:var(--amb)}
+  .phase .d strong{display:block;margin-bottom:.2em}
+  .phase .d span{color:var(--mut);font-size:.92rem}
+  .note{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--amb);border-radius:12px;padding:14px 18px;margin:0 0 24px;color:var(--txt);font-size:.95rem}
+  body.light .note{border-left-color:#EAB308;background:#FEF9C3}
+  .note.warn{border-left-color:#f28b82}
+  .tbl{width:100%;border-collapse:collapse;font-size:.92rem}
+  .tblwrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px}
+  .tbl th,.tbl td{padding:12px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+  .tbl th{font-family:Sora;font-size:.85rem;background:var(--bg2)}
+  .tbl td{color:var(--mut)}
+  .tbl td:first-child{color:var(--txt);font-weight:600;white-space:nowrap}
+  .tbl tr.hl td{background:rgba(250,204,21,.07)}
+  .tbl tr:last-child td{border-bottom:none}
+  @media(max-width:640px){
+    .tblwrap{border:none}
+    .tbl,.tbl tbody,.tbl tr,.tbl td{display:block;width:100%}
+    .tbl tr:first-child{display:none}
+    .tbl tr{border:1px solid var(--line);border-radius:14px;margin-bottom:12px;background:var(--card);overflow:hidden}
+    .tbl td{border-bottom:1px solid var(--line);padding:9px 14px}
+    .tbl td:first-child{font-family:Sora;font-size:1.05rem;background:var(--bg2)}
+    .tbl td[data-l]::before{content:attr(data-l) ": ";font-weight:600;color:var(--txt)}
+  }
+  .ficha{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:6px 20px}
+  .ficha .row{display:grid;grid-template-columns:170px minmax(0,1fr);gap:14px;padding:14px 0;border-bottom:1px solid var(--line)}
+  .ficha .row:last-child{border:none}
+  .ficha .row b{font-family:Sora;color:var(--amb)}
+  .ficha .row span{color:var(--mut)}
+  @media(max-width:600px){.ficha .row{grid-template-columns:1fr;gap:4px}}
+  .video{aspect-ratio:16/9;border:1px dashed var(--line);border-radius:16px;background:var(--card);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:8px;text-align:center;padding:20px}
+  .video strong{font-family:Sora;font-size:1.2rem}
+  .video span{color:var(--mut);font-size:.95rem;max-width:52ch}
+  .videos{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px}
+  .vid figcaption{font-family:Sora;font-weight:600;margin:0 0 8px}
+  .vid iframe{width:100%;aspect-ratio:16/9;border:0;border-radius:16px;background:#000;display:block}
+  .techhead{background:var(--bg2);border-top:3px solid var(--amb);padding:58px 0 8px}
+  .techhead h2{font-family:Sora;margin:.3em 0 0;font-size:clamp(1.5rem,3.4vw,2.1rem)}
+  .techhead p{color:var(--mut);max-width:66ch}
+  .techzone{background:var(--bg2)}
+  .fecho{text-align:center}
+  .fecho h2{max-width:30ch;margin:0 auto}
+  .fecho p{color:var(--mut);max-width:60ch;margin:1em auto 1.4em}
+  footer{padding:46px 0;text-align:center;color:var(--mut);font-size:.9rem}
+  .pill{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:.3em .8em;font-size:.78rem;color:var(--mut);margin:0 4px 6px}
+</style>
+</head>
+<body>
+
+<nav><div class="wrap">
+  <a class="brand" href="#top"><span class="emoji">🐝</span> Swarm Sheet</a>
+  <span class="sep">|</span>
+  <span class="clubpro">
+    <a class="inema" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+    <span class="sep">-</span>
+    <a class="pro" href="https://inema.pro" target="_blank" rel="noopener">PRO</a>
+  </span>
+  <div class="links">
+    <a class="sec" href="#video">Video</a>
+    <a class="sec" href="#entender">How it works</a>
+    <a class="sec" href="#comparar">Which one to use</a>
+    <a class="sec" href="#acompanhar">Follow along</a>
+    <a class="sec" href="#cuidados">Cautions</a>
+    <a class="sec" href="#tecnico">Kit (technical)</a>
+    <span class="lang"><a href="../">PT</a><a class="on" href="./">EN</a><a href="../es/">ES</a></span>
+    <button class="tgl" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌙</button>
+    <a class="btn" href="https://github.com/inematds/enxame-antigravity" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</div></nav>
+
+<header class="hero" id="top">
+  <div class="glow"></div>
+  <div class="wrap">
+    <div>
+      <span class="chip">Google Antigravity · /swarm</span>
+      <h1>Still asking a single agent to do everything? With the <span class="amb">Swarm Sheet</span>, Antigravity’s /swarm splits up the work without the chaos.</h1>
+      <p class="lead">One agent does one thing at a time and gets lost in a big task. Several agents without an agreement edit the same file, nobody checks the work, and your quota runs out. The sheet solves this before you type /swarm.</p>
+      <div class="cta">
+        <a class="btn" href="#entender">Understand it in 5 minutes</a>
+        <a class="btn ghost" href="https://github.com/inematds/enxame-antigravity" target="_blank" rel="noopener">View on GitHub</a>
+      </div>
+    </div>
+    <figure><img src="../assets/banner-en.jpg" alt="Swarm Sheet banner: split Antigravity’s /swarm without the chaos, with robots at separate desks connected to a message board"></figure>
+  </div>
+</header>
+
+<section id="resumo" class="resumo"><div class="wrap">
+  <span class="chip">In short</span>
+  <p>Google introduced the <strong>/swarm</strong> command in Antigravity: you describe a task, and a coordinator splits it among several named agents who work at the same time while a verifier reviews and tests their work. This only works if their parts do not overlap. The <strong>Swarm Sheet</strong> is a short document you write first: who owns what, what each worker must leave alone, when it is done, who verifies it, and when to stop. This guide explains /swarm based on the official documentation and includes a free kit that checks your sheet and builds text you can paste. You need a Google AI Pro or Ultra plan for /swarm and Python 3 for the kit.</p>
+  <figure class="bigfig"><img src="../assets/banner-grade-en.jpg" alt="The sheet’s 6 points: one clear task, an owner for each piece, nobody edits another’s work, a verifier reviews, a quota limit, and a prompt ready to paste" loading="lazy"></figure>
+</div></section>
+
+<section id="video"><div class="wrap">
+  <span class="chip">Video</span>
+  <h2>Understand it in a few minutes</h2>
+  <p class="sub">Three videos will appear here: the basics (what it is and when to use it), the technical side (coordinator, board, and verifier), and the sheet (how to write the specification).</p>
+  <!-- VIDEO: entra o explicavideo do projeto quando publicado -->
+  <div class="videos">
+    <!-- VIDEOS: cada vídeo publicado entra como um <figure class="vid"> aqui dentro -->
+    <figure class="vid"><figcaption>Basics: what /swarm is and when to use it</figcaption><iframe src="https://www.youtube-nocookie.com/embed/vuSmMBjPmzw" title="Video: /swarm basics" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></figure>
+    <figure class="vid"><figcaption>Technical: coordinator, board and verifier inside</figcaption><iframe src="https://www.youtube-nocookie.com/embed/7sfrC7sG2Xs" title="Video: /swarm technical" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></figure>
+    <figure class="vid"><figcaption>Specification: how to write the Swarm Sheet</figcaption><iframe src="https://www.youtube-nocookie.com/embed/ftjOaqX3hwk" title="Video: Swarm Sheet" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></figure>
+  </div>
+</div></section>
+
+<section id="entender"><div class="wrap">
+  <span class="chip">How /swarm works</span>
+  <h2>One coordinator, several workers, and one verifier on a shared board</h2>
+  <p class="sub">Everything in this section comes from the <a href="https://antigravity.google/docs/swarm" target="_blank" rel="noopener">official Google Antigravity documentation</a>. /swarm is available in the app and CLI, is in preview, and is for Google AI Pro and Ultra plans.</p>
+  <div class="note"><strong>Transparency:</strong> We have not tested /swarm. Antigravity is not installed on the machine where this kit was made. The information here comes from the official documentation; third-party information is marked as a “report.”</div>
+  <div class="flow">
+    <span>You: /swarm + task</span><span class="arr">→</span>
+    <span>Coordinator splits it up</span><span class="arr">→</span>
+    <span>Workers @name work together</span><span class="arr">→</span>
+    <span>@verifier reviews and tests</span><span class="arr">→</span>
+    <span>Coordinator reports back</span>
+  </div>
+  <div class="grid g3">
+    <div class="card"><h3>🧭 The coordinator</h3><p>Your conversation becomes the coordinator. It names the swarm, splits the task into pieces that do not overlap (for example, one worker per file or package), and creates named workers such as <code>@parser</code> and <code>@docs</code>, or a numbered group like <code>@fix-1</code> to <code>@fix-4</code>. It does not do the technical work: it assigns tasks, evaluates what comes back, and talks to you.</p></div>
+    <div class="card"><h3>📋 Each worker’s brief</h3><p>Each worker starts from scratch in its own conversation. Its brief goes on the board, where everyone can see it, and says three things: what it owns, what it cannot touch, and what “done” looks like. That is exactly what the Swarm Sheet helps you think through in advance.</p></div>
+    <div class="card"><h3>🔍 The verifier</h3><p>The coordinator usually assigns one <code>@verifier</code> for every 2 to 4 workers. It reads the changes (the diffs), runs the tests, and sends problems back to whoever wrote the code. You can ask it to run on a different model from the workers.</p></div>
+    <div class="card"><h3>🗒️ One shared board</h3><p>Tasks, questions, summaries, and test results go to one shared message board, with mentions like <code>@name</code>, <code>@group</code>, or <code>@all</code>. Workers do not talk privately: the whole conversation stays in one place, in order.</p></div>
+    <div class="card"><h3>😴 Waiting costs nothing</h3><p>A worker with nothing to do waits on the board without using tokens and wakes when someone mentions it. The <code>@monitor</code> stays asleep while there is progress and only speaks if everyone stops before the task is done.</p></div>
+    <div class="card"><h3>📁 Workspace</h3><p>By default, everyone uses your project folder. When several workers edit at the same time, the coordinator can give each one a working copy. Removing a worker deletes its copy, so the worker should hand over its changes first.</p></div>
+  </div>
+</div></section>
+
+<section id="comparar"><div class="wrap">
+  <span class="chip">Which one to use</span>
+  <h2>Subagent, /boost, /swarm, or /teamwork?</h2>
+  <p class="sub">A swarm is not always the answer. The official table distinguishes four ways to get more than one agent working. The kit includes a helper that asks these questions for you (<a href="#guia">how to use it ↓</a>).</p>
+  <div class="tblwrap"><table class="tbl">
+    <tr><th></th><th>Best for</th><th>How to start</th><th>Typical duration</th><th>Plan</th></tr>
+    <tr><td>Subagent</td><td data-l="Best for">A focused side task: search the code, check in the browser, run tests</td><td data-l="How to start">Automatic delegation or mention <code>@subagent</code></td><td data-l="Typical duration">Seconds to minutes</td><td data-l="Plan">All plans</td></tr>
+    <tr><td>/boost</td><td data-l="Best for">A difficult, focused problem: a tricky bug, race condition, or algorithm</td><td data-l="How to start"><code>/boost &lt;task&gt;</code></td><td data-l="Typical duration">Seconds to hours</td><td data-l="Plan">Paid</td></tr>
+    <tr class="hl"><td>/swarm</td><td data-l="Best for">A broad task that splits cleanly into independent files, packages, or questions</td><td data-l="How to start"><code>/swarm &lt;task&gt;</code></td><td data-l="Typical duration">Minutes to hours</td><td data-l="Plan">Google AI Pro and Ultra</td></tr>
+    <tr><td>/teamwork</td><td data-l="Best for">A project with several milestones: migrating an entire repository, running a simulation, or doing extended research; starts with an interview and uses its own folder</td><td data-l="How to start"><code>/teamwork &lt;goal&gt;</code></td><td data-l="Typical duration">Hours to days</td><td data-l="Plan">Paid</td></tr>
+  </table></div>
+  <p class="mut" style="margin-top:14px;font-size:.9rem">Source: the “Choose between Swarm, Teamwork, Boost, and subagents” table in the <a href="https://antigravity.google/docs/swarm" target="_blank" rel="noopener">official documentation</a>. For everyday tasks, the documentation itself recommends speaking directly with the default agent.</p>
+</div></section>
+
+<section id="acompanhar"><div class="wrap">
+  <span class="chip">Follow along</span>
+  <h2>How to follow the swarm while it works</h2>
+  <p class="sub">In the app, the Swarm panel opens beside the conversation through the “Open the Swarm UI” link in the coordinator’s response. In the CLI, a status line appears below the input field, and the board opens full screen.</p>
+  <div class="ex">
+    <figure><img src="../assets/swarm-app-board-v4.jpg" alt="Antigravity app with the /swarm conversation on the left and the Swarm panel’s Board tab on the right" loading="lazy"><figcaption><strong>App · Board tab:</strong> the live board, showing who posted, who it was for, and the number and time of each post. It has search, filters, and “Follow” to scroll automatically.<small>Image: Google Antigravity documentation</small></figcaption></figure>
+    <figure><img src="../assets/swarm-app-graph-v4.jpg" alt="Swarm panel’s Graph tab with the coordinator, verifier, and workers connected by mention arrows" loading="lazy"><figcaption><strong>App · Graph tab:</strong> who mentioned whom, with thicker arrows for more posts, and a replay from the first post to the last. The <strong>Members</strong> tab lists each member with its status and model.<small>Image: Google Antigravity documentation</small></figcaption></figure>
+    <figure><img src="../assets/swarm-cli-status-line-v4.jpg" alt="Antigravity CLI with the swarm status line below the input field" loading="lazy"><figcaption><strong>CLI · status line:</strong> the swarm title, latest post, post count, and the <code>alt+s board</code> hint. Alt+X hides the line; a new post brings it back.<small>Image: Google Antigravity documentation</small></figcaption></figure>
+    <figure><img src="../assets/swarm-cli-board-v4.jpg" alt="Full-screen swarm board in the CLI, with a member list, posts, and the selected message" loading="lazy"><figcaption><strong>CLI · board:</strong> opens with <code>/swarm board</code> or Alt+S. Three panels: members (working, waiting, killed), posts, and the full message. <code>q</code> closes it.<small>Image: Google Antigravity documentation</small></figcaption></figure>
+  </div>
+  <div class="grid g3" style="margin-top:22px">
+    <div class="card"><h3>Statuses</h3><ul><li><strong>Active</strong>: working.</li><li><strong>Waiting</strong>: waiting on the board without using tokens.</li><li><strong>Killed</strong>: removed; it will not return, and the coordinator creates another.</li></ul></div>
+    <div class="card"><h3>CLI shortcuts</h3><ul><li><code>/agents</code> lists the workers.</li><li>Alt+J jumps to whoever is waiting for approval; Ctrl+K approves without leaving the conversation.</li><li>On macOS, Alt+S only works if the terminal sends Option as Alt.</li></ul></div>
+    <div class="card"><h3>Message one worker directly</h3><p>In the CLI, start with <code>@</code> and the name: <code>@verifier also run the integration tests</code>. The message goes only to that worker, not to the board. In the app, open its conversation from the Members tab.</p></div>
+  </div>
+</div></section>
+
+<section id="ficha"><div class="wrap">
+  <span class="chip">The Swarm Sheet</span>
+  <h2>Five questions to answer before typing /swarm</h2>
+  <p class="sub">The documentation asks you to say what you want and how to verify it, and lets the coordinator split up the work. The sheet takes one step earlier: you arrive with the division already planned, so the coordinator is less likely to assign two workers to the same file. Example: a one-page ROI calculator.</p>
+  <div class="ficha">
+    <div class="row"><b>Task</b><span>A single-page HTML ROI calculator: enter monthly traffic, conversion rate (%), average order value, and estimated increase (%); get the estimated monthly gain, calculated as gain = traffic × (increase/100) × (conversion/100) × ticket. Example: 10,000 visits, 2%, R$ 150, and 20% give R$ 6,000.</span></div>
+    <div class="row"><b>How to verify</b><span>One command that proves it worked: <code>node --test tests/calculo.test.js</code>.</span></div>
+    <div class="row"><b>Pieces</b><span><strong>@layout</strong> owns the page and style · <strong>@entradas</strong> owns the 4 fields · <strong>@calculo</strong> owns the calculation and test. Each one says what it will not touch (the other workers’ files) and when it is done.</span></div>
+    <div class="row"><b>Verifier</b><span>One, using a different model from the workers: reads the 3 diffs, checks that nobody edited another worker’s file, and runs the test.</span></div>
+    <div class="row"><b>Limits</b><span>Only 3 workers; if the quota runs out, stop and report it; stop when the test passes or after 2 rounds; remove the workers at the end; do not run unattended loops.</span></div>
+  </div>
+  <p class="mut" style="margin-top:16px">The kit checks this sheet against 8 items and gives it a score from 0 to 8. It builds text to paste into /swarm only with a score of 7 or 8; below that, it shows what to fix (<a href="#guia">how to use it ↓</a>).</p>
+</div></section>
+
+<section id="cuidados"><div class="wrap">
+  <span class="chip">Cautions</span>
+  <h2>A swarm uses quota quickly. Start small.</h2>
+  <p class="sub">Each worker is its own agent. By our count, three workers, one verifier, and the monitor make five agents in addition to the coordinator, not one.</p>
+  <div class="grid g2">
+    <div class="card"><h3>💳 Quota</h3><p>The documentation warns that a swarm uses quota much faster than a conversation. It is in preview and available only on Google AI Pro and Ultra plans.</p></div>
+    <div class="card"><h3>⏸️ Out of quota? Pause.</h3><p>A member that runs out of quota pauses instead of retrying. It resumes only when there is a new board post, a model change, or a message from you. It does not restart on its own when the quota renews.</p></div>
+    <div class="card"><h3>🗑️ Removal is permanent</h3><p>A removed worker does not return, and its working copy is deleted. Ask the coordinator to have the worker hand over its changes first.</p></div>
+    <div class="card"><h3>🚫 No unsupervised loops</h3><p><strong>Report</strong> from a user: their account was blocked within minutes when another agent launched dozens of sessions without supervision, just seconds apart; access returned after an automatic appeal. According to the same report, a reply on Google’s forum said automated use is allowed and counts against the quota, but high-volume, unsupervised background loops may trigger anti-abuse protection.</p></div>
+  </div>
+  <div class="note" style="margin-top:22px"><strong>Recommendation:</strong> start with 2 or 3 pieces and 1 verifier, follow the board, write down in the sheet how much quota you are willing to spend and when to stop, and do not run swarms in a loop overnight. Details in <a href="https://github.com/inematds/enxame-antigravity/blob/main/CUIDADOS.md" target="_blank" rel="noopener">CUIDADOS.md</a> (in Portuguese).</div>
+</div></section>
+
+<div id="tecnico" class="techhead"><div class="wrap">
+  <span class="chip">Technical section</span>
+  <h2>The kit: write the sheet and check it before /swarm</h2>
+  <p>You do not need this section to understand what came before.</p>
+</div></div>
+
+<div class="techzone">
+
+<section id="oque"><div class="wrap">
+  <span class="chip">What it is</span>
+  <h2>A template, a checker, and a helper to choose</h2>
+  <p class="sub">Python 3 with the standard library. No packages to install and no API key: the scripts only read text files.</p>
+  <div class="grid g3">
+    <div class="card"><h3>📝 modelos/FICHA.md</h3><p>The Markdown sheet template: Task, How to verify, Pieces (<code>### @name</code> with owner, leave alone, done when), Verifier, Limits, and, if you want, Worker model.</p></div>
+    <div class="card"><h3>✅ checar.py</h3><p>Checks 8 items, gives a score from 0–8 with the reason and how to fix it. <code>--prompt</code> builds the text to paste (only with a score of 7 or higher), <code>--en</code> in English, <code>--json</code> for another program. Exits with 0 if the score is 7 or higher.</p></div>
+    <div class="card"><h3>🧭 escolher.py</h3><p>Subagent, /boost, /swarm, or /teamwork, based on the official table; if none fits, it answers “the default agent, in a regular conversation.” Use flags (<code>--divide-limpo sim</code>, <code>--dificil</code>, <code>--dias</code>, <code>--lateral</code>) or answer prompts in the terminal.</p></div>
+  </div>
+</div></section>
+
+<section id="fluxo"><div class="wrap">
+  <span class="chip">How it works</span>
+  <h2>The process, from start to finish</h2>
+  <p class="sub">🧠 you · ⚙️ kit script · 🤖 /swarm in Antigravity</p>
+  <div class="flow">
+    <span>🧠⚙️ escolher.py</span><span class="arr">→</span>
+    <span>🧠 fill in the sheet</span><span class="arr">→</span>
+    <span>⚙️ checar.py</span><span class="arr">→</span>
+    <span>🧠 fix it until you get 7–8</span><span class="arr">→</span>
+    <span>⚙️ checar.py --prompt</span><span class="arr">→</span>
+    <span>🧠 paste into /swarm</span><span class="arr">→</span>
+    <span>🤖 coordinator splits it up</span><span class="arr">→</span>
+    <span>🧠 follow the board</span><span class="arr">→</span>
+    <span>🤖 verifier runs the test</span><span class="arr">→</span>
+    <span>🧠 review and clean up</span>
+  </div>
+  <div class="grid g4">
+    <div class="card"><h3>1. The 8 items</h3><p>Task · verification command · 2+ pieces · an owner for each · no overlapping owners · leave-alone and done-when instructions · verifier · limits without loops.</p></div>
+    <div class="card"><h3>2. Overlap</h3><p>Same file, a folder containing a file assigned to another piece, and simple globs (a pattern with * that matches multiple files, such as <code>src/*.js</code>). Always put paths in backticks; an owner without backticks is a question (investigation).</p></div>
+    <div class="card"><h3>3. Verifier</h3><p>Missing <code>- roda:</code> fails. The ratio (1 for every 2–4 pieces) and using the same model as the workers only trigger warnings.</p></div>
+    <div class="card"><h3>4. Loops</h3><p>Fails on “run all night without supervision,” “in a loop,” or “dozens of sessions.” A negation (“no loops”) passes.</p></div>
+  </div>
+</div></section>
+
+<section id="pre"><div class="wrap">
+  <span class="chip">Requirements</span>
+  <h2>What you need</h2>
+  <p class="sub">For the kit, just Python 3. To use /swarm, you need Antigravity (app or CLI) on a Google AI Pro or Ultra plan.</p>
+  <div class="grid g2">
+    <div class="card"><h3>Python 3</h3><p>Any recent version. Check:</p><pre><span class="k">python3</span> --version</pre></div>
+    <div class="card"><h3>The kit</h3><p>Clone the repository:</p><pre><span class="k">git clone</span> <span class="s">https://github.com/inematds/enxame-antigravity</span>
+<span class="k">cd</span> enxame-antigravity</pre></div>
+  </div>
+</div></section>
+
+<section id="guia"><div class="wrap">
+  <span class="chip">User guide · step by step</span>
+  <h2>From the sheet to text you can paste</h2>
+  <p class="sub">The outputs below are real outputs from <code>checar.py</code> and <code>escolher.py</code> running on the kit examples. They are not outputs from /swarm.</p>
+
+  <div class="step"><div class="b">1</div><div>
+    <h3>Check whether this is a swarm task</h3>
+    <p>Without flags, the script asks 4 questions. With flags, it answers directly. (The scripts print in Portuguese.)</p>
+<pre><span class="k">python3 escolher.py --divide-limpo sim</span>
+<span class="c">Use: /swarm &lt;tarefa&gt;
+Por quê: Tarefa ampla que se divide limpo em arquivos, pacotes ou perguntas independentes: workers com nome trabalham ao mesmo tempo e um @verifier revisa os diffs e roda os testes, tudo num quadro único.
+Plano exigido: Google AI Pro e Google AI Ultra (em prévia; gasta cota muito mais rápido que uma conversa) · horizonte típico: minutos a horas (tabela oficial: https://antigravity.google/docs/swarm)
+Próximo passo: Antes de digitar, escreva a Ficha do Enxame: cp modelos/FICHA.md minha-ficha.md &amp;&amp; python3 checar.py minha-ficha.md</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">2</div><div>
+    <h3>Copy the template and fill it in</h3>
+    <p>Always put files and folders in backticks. For an investigation, the owner can be a question: <code>- dono: pergunta: quais módulos custam mais tempo?</code> The empty template scores 1/8 in the checker; that is normal—it only passes once filled in.</p>
+<pre><span class="k">cp</span> modelos/FICHA.md minha-ficha.md</pre>
+  </div></div>
+
+  <div class="step"><div class="b">3</div><div>
+    <h3>Check the sheet</h3>
+    <p>Real output for the ROI calculator example:</p>
+<pre><span class="k">python3 checar.py exemplos/calculadora-roi/ficha.md</span>
+<span class="c">Ficha do Enxame: exemplos/calculadora-roi/ficha.md
+✔ 1. Tarefa escrita — tarefa: Criar uma página HTML única de calculadora de ROI: a pessoa digita tráfego mensal, taxa de…
+✔ 2. Como verificar tem um comando — comando: node --test tests/calculo.test.js
+✔ 3. Pelo menos 2 peças — 3 peça(s): @layout, @entradas, @calculo
+✔ 4. Toda peça tem dono — todas têm dono
+✔ 5. Donos não se sobrepõem — nenhum arquivo com dois donos
+✔ 6. Toda peça diz o que não mexe e quando está pronta — todas completas
+✔ 7. Verificador definido — 1 verificador(es) para 3 peça(s); roda: node --test tests/calculo.test.js
+✔ 8. Limites de cota e de parada, sem laço sem supervisão — cota e parada definidas; nenhum laço sem supervisão
+Nota: 8/8 — pronta para o /swarm</span></pre>
+    <p>And in the bad example (excerpt), with the reason and how to fix it:</p>
+<pre><span class="k">python3 checar.py exemplos/ruim.md</span>
+<span class="bad">✘ 5. Donos não se sobrepõem — colisão: @design `site/` × @textos `site/index.html`</span>
+<span class="c">   → como corrigir: Dê cada arquivo a uma peça só. Se duas precisam do mesmo arquivo, quebre o arquivo em partes, junte as duas peças numa só, ou peça cópias de trabalho (working copy) para cada worker.</span>
+<span class="bad">✘ 7. Verificador definido — sem seção '## Verificador'</span>
+<span class="bad">✘ 8. Limites de cota e de parada, sem laço sem supervisão — falta limite de cota; falta quando parar; pede laço sem supervisão: - deixar o /swarm rodando a noite toda sem supervisão até ficar perfeito</span>
+<span class="c">Nota: 2/8 — ainda não: corrija os ✘ antes do /swarm</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">4</div><div>
+    <h3>Generate the text to paste</h3>
+    <p>One line that already starts with <code>/swarm</code>. It only appears with a score of 7 or 8; below that, the script shows what to fix and exits with code 1. With <code>--en</code>, the skeleton is in English (“Give each piece its own worker”, “Add 1 verifier…”), but the task and owners stay in the language you wrote them in. The sheet’s headings and keys (Tarefa, Peças, dono, não mexe, pronto quando...) stay in Portuguese because checar.py reads them that way. Real output (excerpt):</p>
+<pre><span class="k">python3 checar.py exemplos/calculadora-roi/ficha.md --prompt</span>
+<span class="c">/swarm Criar uma página HTML única de calculadora de ROI: a pessoa digita tráfego mensal, taxa de conversão (%), ticket médio e aumento estimado (%), e a página mostra o ganho estimado por mês, com ganho = tráfego × (aumento/100) × (conversão/100) × ticket. Dê a cada peça o seu próprio worker. Peças: @layout é dono de index.html, estilo.css; não mexe em entradas.js, calculo.js, tests/; pronto quando … | @entradas é dono de entradas.js; … | @calculo é dono de calculo.js, tests/calculo.test.js; … Adicione 1 verificador num modelo diferente do dos workers. Verificador: lê os 3 diffs, confere que ninguém editou arquivo de outra peça e roda node --test tests/calculo.test.js. Para verificar, rode node --test tests/calculo.test.js. Limites: …</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">5</div><div>
+    <h3>Paste into Antigravity and follow along</h3>
+    <p>The line already starts with <code>/swarm</code>: paste the entire line into the conversation without typing /swarm first. The documentation shows the command being typed and completed with Tab; if the pasted command is not recognized, type <code>/swarm</code>, press Tab, and paste only the rest of the text. In the app, open the panel using the “Open the Swarm UI” link. In the CLI, run <code>/swarm board</code> or Alt+S. When the coordinator reports back, run the “How to verify” command yourself and ask the coordinator to remove the workers that are done.</p>
+<pre><span class="k">/swarm board</span>   <span class="c"># in the Antigravity CLI: opens the live board</span></pre>
+  </div></div>
+
+  <div class="step"><div class="b">6</div><div>
+    <h3>Run the kit tests (optional)</h3>
+    <p>36 tests with <code>unittest</code>: the 4 examples score 8, the bad example exits with code 1 (including with <code>--prompt</code>), and the <code>prompt.txt</code> files match what the script generates.</p>
+<pre><span class="k">python3 -m unittest -v</span>
+<span class="c">Ran 36 tests …
+OK</span></pre>
+  </div></div>
+</div></section>
+
+<section id="exemplos"><div class="wrap">
+  <span class="chip">Examples</span>
+  <h2>Four ready-to-use sheets, score 8</h2>
+  <p class="sub">Each folder has the <code>ficha.md</code>, <code>prompt.txt</code>, and <code>prompt.en.txt</code> generated by <code>checar.py</code>. The real outputs for all of them are in <a href="https://github.com/inematds/enxame-antigravity/blob/main/exemplos/saidas.txt" target="_blank" rel="noopener">exemplos/saidas.txt</a> (in Portuguese).</p>
+  <div class="grid g2">
+    <div class="card"><h3>🧮 calculadora-roi</h3><p>One-page calculator with 4 inputs (traffic, conversion, average order value, estimated increase): @layout, @entradas, and @calculo, each with its own files, and 1 verifier running the calculation test.</p></div>
+    <div class="card"><h3>🛬 landing-page</h3><p>Six pieces (header, benefits, form, testimonials, FAQ, and assembly with the buttons), each section in its own file, a working copy for assembly, and 2 verifiers.</p></div>
+    <div class="card"><h3>🐢 investigacao-lenta</h3><p>Three read-only investigators (imports, configuration, plugins), owners of questions, and one verifier that repeats the measurements and ranks the fixes.</p></div>
+    <div class="card"><h3>🧪 testes-por-pacote</h3><p>One worker per broken package, without deleting or loosening assertions, and one verifier that compares the diffs and runs the full suite.</p></div>
+  </div>
+  <p class="mut" style="margin-top:14px;font-size:.92rem">The slow investigation and tests-by-package examples are inspired by examples in the official documentation; the sheets, with a verifier and limits, come from the kit.</p>
+</div></section>
+
+<section id="roadmap"><div class="wrap">
+  <span class="chip">Roadmap</span>
+  <h2>What’s next</h2>
+  <p class="sub">The kit follows the documentation; when it changes, the kit changes.</p>
+  <div class="phase"><div class="tag">Now</div><div class="d"><strong>Kit v1</strong><span>Sheet template, checar.py with 8 items and PT/EN prompt, escolher.py, 4 examples and the bad example, 36 tests.</span></div></div>
+  <div class="phase"><div class="tag">Coming soon</div><div class="d"><strong>Three videos</strong><span>Basics, technical details, and the sheet, on this page and in all three languages.</span></div></div>
+  <div class="phase"><div class="tag">Later</div><div class="d"><strong>Real-world test</strong><span>When /swarm is available, run the 4 sheets and publish what happened, including the quota used.</span></div></div>
+</div></section>
+
+</div>
+
+<section class="fecho"><div class="wrap">
+  <h2>What task would you give a swarm of agents first?</h2>
+  <p>The Swarm Sheet, checker, and examples are free on inema.club, right here on the web.</p>
+  <a class="btn" href="https://inema.club" target="_blank" rel="noopener">INEMA.CLUB</a>
+</div></section>
+
+<footer>
+  <div class="wrap">
+    <div class="pill">Python 3</div><div class="pill">Markdown</div><div class="pill">Google Antigravity /swarm</div>
+    <p style="margin-top:18px">Swarm Sheet · open kit, MIT license · not affiliated with Google ·
+      <a href="https://github.com/inematds/enxame-antigravity">inematds/enxame-antigravity</a> ·
+      <a href="https://antigravity.google/docs/swarm">official documentation</a> ·
+      <a href="https://inema.club">INEMA.CLUB</a></p>
+  </div>
+</footer>
+
+<script>
+  (function(){
+    var KEY='enxame-antigravity-theme';
+    var b=document.body, t=document.getElementById('themeToggle');
+    try{ if(localStorage.getItem(KEY)==='light'){ b.classList.add('light'); t.textContent='☀️'; } }catch(e){}
+    t.addEventListener('click',function(){
+      var light=b.classList.toggle('light');
+      t.textContent=light?'☀️':'🌙';
+      try{ localStorage.setItem(KEY, light?'light':'dark'); }catch(e){}
+    });
+  })();
+</script>
+</body>
+</html>
