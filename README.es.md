@@ -1,6 +1,6 @@
 # Ficha del Enjambre — /swarm de Google Antigravity sin desorden
 
-[![Ficha del Enjambre](guia/assets/banner-es.jpg)](https://inematds.github.io/enxame-antigravity/guia/es/)
+[![Ficha del Enjambre](guia/assets/banner-es.jpg)](https://linnoff88-dev.github.io/
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
@@ -12,7 +12,7 @@
 
 ## 📖 Guía de uso
 
-Guía completa (landing + paso a paso): **https://inematds.github.io/enxame-antigravity/guia/es/**
+Guía completa (landing + paso a paso): **https://linnoff88-dev.github.io/
 
 🎬 Vídeo: pronto en la guía.
 
@@ -83,4 +83,4 @@ Todas las salidas: [`exemplos/saidas.txt`](exemplos/saidas.txt) (en portugués).
 - Comandos (`/boost`, `/teamwork` y otros): https://antigravity.google/docs/slash-commands
 - `/teamwork`: https://antigravity.google/docs/teamwork
 
-Kit abierto y gratuito de [INEMA.CLUB](https://inema.club). Licencia MIT.
+Kit abierto y gratuito de [ARCKHÉ AI](https://ARCKHÉ AI). Licencia MIT.

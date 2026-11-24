@@ -1,6 +1,6 @@
 # Swarm Sheet — Google Antigravity’s /swarm without the mess
 
-[![Swarm Sheet](guia/assets/banner-en.jpg)](https://inematds.github.io/enxame-antigravity/guia/en/)
+[![Swarm Sheet](guia/assets/banner-en.jpg)](https://linnoff88-dev.github.io/
 
 **🇧🇷 [Português](README.md) · 🇺🇸 [English](README.en.md) · 🇪🇸 [Español](README.es.md)**
 
@@ -12,7 +12,7 @@ Do you still ask a single agent to do everything? Google Antigravity’s `/swarm
 
 ## 📖 User guide
 
-Complete guide (landing page + walkthrough): **https://inematds.github.io/enxame-antigravity/guia/en/**
+Complete guide (landing page + walkthrough): **https://linnoff88-dev.github.io/
 
 🎬 Video: coming soon in the guide.
 
@@ -83,4 +83,4 @@ All outputs: [`exemplos/saidas.txt`](exemplos/saidas.txt) (in Portuguese).
 - Commands (`/boost`, `/teamwork`, and others): https://antigravity.google/docs/slash-commands
 - `/teamwork`: https://antigravity.google/docs/teamwork
 
-Open and free kit from [INEMA.CLUB](https://inema.club). MIT License.
+Open and free kit from [ARCKHÉ AI](https://ARCKHÉ AI). MIT License.
