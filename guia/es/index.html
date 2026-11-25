@@ -369,25 +369,25 @@ Próximo passo: Antes de digitar, escreva a Ficha do Enxame: cp modelos/FICHA.md
 ✔ 2. Como verificar tem um comando — comando: node --test tests/calculo.test.js
 ✔ 3. Pelo menos 2 peças — 3 peça(s): @layout, @entradas, @calculo
 ✔ 4. Toda peça tem dono — todas têm dono
-✔ 5. Donos não se sobrepõem — nenhum arquivo com dois donos
-✔ 6. Toda peça diz o que não mexe e quando está pronta — todas completas
+✔ 5. Donos nêo se sobrepõem — nenhum arquivo com dois donos
+✔ 6. Toda peça diz o que nêo mexe e quando está pronta — todas completas
 ✔ 7. Verificador definido — 1 verificador(es) para 3 peça(s); roda: node --test tests/calculo.test.js
-✔ 8. Limites de cota e de parada, sem laço sem supervisão — cota e parada definidas; nenhum laço sem supervisão
+✔ 8. Limites de cota e de parada, sem laço sem supervisêo — cota e parada definidas; nenhum laço sem supervisêo
 Nota: 8/8 — pronta para o /swarm</span></pre>
     <p>Y en el ejemplo malo (fragmento), con el motivo y cómo corregirlo:</p>
 <pre><span class="k">python3 checar.py exemplos/ruim.md</span>
-<span class="bad">✘ 5. Donos não se sobrepõem — colisão: @design `site/` × @textos `site/index.html`</span>
+<span class="bad">✘ 5. Donos nêo se sobrepõem — colisêo: @design `site/` × @textos `site/index.html`</span>
 <span class="c">   → como corrigir: Dê cada arquivo a uma peça só. Se duas precisam do mesmo arquivo, quebre o arquivo em partes, junte as duas peças numa só, ou peça cópias de trabalho (working copy) para cada worker.</span>
-<span class="bad">✘ 7. Verificador definido — sem seção '## Verificador'</span>
-<span class="bad">✘ 8. Limites de cota e de parada, sem laço sem supervisão — falta limite de cota; falta quando parar; pede laço sem supervisão: - deixar o /swarm rodando a noite toda sem supervisão até ficar perfeito</span>
-<span class="c">Nota: 2/8 — ainda não: corrija os ✘ antes do /swarm</span></pre>
+<span class="bad">✘ 7. Verificador definido — sem seçêo '## Verificador'</span>
+<span class="bad">✘ 8. Limites de cota e de parada, sem laço sem supervisêo — falta limite de cota; falta quando parar; pede laço sem supervisêo: - deixar o /swarm rodando a noite toda sem supervisêo até ficar perfeito</span>
+<span class="c">Nota: 2/8 — ainda nêo: corrija os ✘ antes do /swarm</span></pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
     <h3>Genera el texto para pegar</h3>
-    <p>Una sola línea que ya empieza con <code>/swarm</code>. Solo se genera con una nota de 7 u 8; con una nota menor, el script indica qué corregir y termina con código 1. Con <code>--en</code>, la estructura sale en inglés («Give each piece its own worker», «Add 1 verifier…»), pero la tarea y los responsables se quedan en el idioma en que los escribiste. Los títulos y las claves de la ficha (Tarefa, Peças, dono, não mexe, pronto quando...) quedan en portugués porque checar.py los lee así. Resultado real (fragmento):</p>
+    <p>Una sola línea que ya empieza con <code>/swarm</code>. Solo se genera con una nota de 7 u 8; con una nota menor, el script indica qué corregir y termina con código 1. Con <code>--en</code>, la estructura sale en inglés («Give each piece its own worker», «Add 1 verifier…»), pero la tarea y los responsables se quedan en el idioma en que los escribiste. Los títulos y las claves de la ficha (Tarefa, Peças, dono, nêo mexe, pronto quando...) quedan en portugués porque checar.py los lee así. Resultado real (fragmento):</p>
 <pre><span class="k">python3 checar.py exemplos/calculadora-roi/ficha.md --prompt</span>
-<span class="c">/swarm Criar uma página HTML única de calculadora de ROI: a pessoa digita tráfego mensal, taxa de conversão (%), ticket médio e aumento estimado (%), e a página mostra o ganho estimado por mês, com ganho = tráfego × (aumento/100) × (conversão/100) × ticket. Dê a cada peça o seu próprio worker. Peças: @layout é dono de index.html, estilo.css; não mexe em entradas.js, calculo.js, tests/; pronto quando … | @entradas é dono de entradas.js; … | @calculo é dono de calculo.js, tests/calculo.test.js; … Adicione 1 verificador num modelo diferente do dos workers. Verificador: lê os 3 diffs, confere que ninguém editou arquivo de outra peça e roda node --test tests/calculo.test.js. Para verificar, rode node --test tests/calculo.test.js. Limites: …</span></pre>
+<span class="c">/swarm Criar uma página HTML única de calculadora de ROI: a pessoa digita tráfego mensal, taxa de conversêo (%), ticket médio e aumento estimado (%), e a página mostra o ganho estimado por mês, com ganho = tráfego × (aumento/100) × (conversêo/100) × ticket. Dê a cada peça o seu próprio worker. Peças: @layout é dono de index.html, estilo.css; nêo mexe em entradas.js, calculo.js, tests/; pronto quando … | @entradas é dono de entradas.js; … | @calculo é dono de calculo.js, tests/calculo.test.js; … Adicione 1 verificador num modelo diferente do dos workers. Verificador: lê os 3 diffs, confere que ninguém editou arquivo de outra peça e roda node --test tests/calculo.test.js. Para verificar, rode node --test tests/calculo.test.js. Limites: …</span></pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>

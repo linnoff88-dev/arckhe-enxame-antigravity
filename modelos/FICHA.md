@@ -5,16 +5,16 @@
 - comando: `<o comando que prova que deu certo, ex.: npm test>`
 
 ## Peças
-<!-- Uma subseção por worker. Arquivos e pastas sempre entre crases. Dono pode ser uma pergunta (sem crases), para investigação. -->
+<!-- Uma subseçêo por worker. Arquivos e pastas sempre entre crases. Dono pode ser uma pergunta (sem crases), para investigaçêo. -->
 
 ### @primeira-peca
 - dono: `<arquivo ou pasta que só esta peça edita>`
-- não mexe: `<arquivos das outras peças>`
+- nêo mexe: `<arquivos das outras peças>`
 - pronto quando: <o teste ou o sinal de fim desta peça>
 
 ### @segunda-peca
 - dono: `<outro arquivo ou pasta>`
-- não mexe: `<arquivos das outras peças>`
+- nêo mexe: `<arquivos das outras peças>`
 - pronto quando: <o teste ou o sinal de fim desta peça>
 
 ## Verificador
@@ -24,7 +24,7 @@
 
 ## Limites
 - cota: <quanto aceita gastar; cada worker é um agente e gasta cota>
-- parar: <quando parar, ex.: quando o comando passar ou depois de 2 rodadas de correção>
+- parar: <quando parar, ex.: quando o comando passar ou depois de 2 rodadas de correçêo>
 - limpar workers: remover os workers que acabaram, depois de entregarem as mudanças
 - sem laço: nada de rodar /swarm em laço, à noite ou sem você olhando o quadro
 

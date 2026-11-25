@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Ficha do Enxame — o /swarm do Google Antigravity sem bagunça</title>
-<meta name="description" content="Antes de digitar /swarm no Google Antigravity, escreva a Ficha do Enxame: quem é dono de quê, o que cada agente não toca, quando está pronto, quem verifica e quando parar. Kit grátis com conferidor de nota 0 a 8.">
+<meta name="description" content="Antes de digitar /swarm no Google Antigravity, escreva a Ficha do Enxame: quem é dono de quê, o que cada agente nêo toca, quando está pronto, quem verifica e quando parar. Kit grátis com conferidor de nota 0 a 8.">
 <link rel="alternate" hreflang="pt-BR" href="https://linnoff88-dev.github.io/
 <link rel="alternate" hreflang="en" href="https://linnoff88-dev.github.io/
 <link rel="alternate" hreflang="es" href="https://linnoff88-dev.github.io/
@@ -188,28 +188,28 @@
 
 <section id="resumo" class="resumo"><div class="wrap">
   <span class="chip">Em resumo</span>
-  <p>O Google lançou no Antigravity o comando <strong>/swarm</strong>: você descreve uma tarefa e um coordenador a divide entre vários agentes com nome, que trabalham ao mesmo tempo, enquanto um verificador revisa e testa. Isso só dá certo se as partes não se atropelarem. A <strong>Ficha do Enxame</strong> é uma folha curta que você escreve antes: quem é dono de quê, o que cada um não toca, quando está pronto, quem verifica e quando parar. Este guia explica o /swarm pela documentação oficial e traz um kit grátis que confere a sua ficha e monta o texto para colar. Precisa do plano Google AI Pro ou Ultra para o /swarm e de Python 3 para o kit.</p>
+  <p>O Google lançou no Antigravity o comando <strong>/swarm</strong>: você descreve uma tarefa e um coordenador a divide entre vários agentes com nome, que trabalham ao mesmo tempo, enquanto um verificador revisa e testa. Isso só dá certo se as partes nêo se atropelarem. A <strong>Ficha do Enxame</strong> é uma folha curta que você escreve antes: quem é dono de quê, o que cada um nêo toca, quando está pronto, quem verifica e quando parar. Este guia explica o /swarm pela documentaçêo oficial e traz um kit grátis que confere a sua ficha e monta o texto para colar. Precisa do plano Google AI Pro ou Ultra para o /swarm e de Python 3 para o kit.</p>
   <figure class="bigfig"><img src="assets/banner-grade.jpg" alt="Os 6 pontos da ficha: uma tarefa clara, cada peça com dono, ninguém mexe no do outro, um verificador revisa, limite de cota, prompt pronto para colar" loading="lazy"></figure>
 </div></section>
 
 <section id="video"><div class="wrap">
   <span class="chip">Vídeo</span>
   <h2>Entenda em poucos minutos</h2>
-  <p class="sub">Três vídeos vão entrar aqui: o básico (o que é e quando usar), o técnico (coordenador, quadro e verificador) e o da ficha (como escrever a especificação).</p>
+  <p class="sub">Três vídeos vêo entrar aqui: o básico (o que é e quando usar), o técnico (coordenador, quadro e verificador) e o da ficha (como escrever a especificaçêo).</p>
   <!-- VIDEO: entra o explicavideo do projeto quando publicado -->
   <div class="videos">
     <!-- VIDEOS: cada vídeo publicado entra como um <figure class="vid"> aqui dentro -->
     <figure class="vid"><figcaption>Básico: o que é o /swarm e quando usar</figcaption><iframe src="https://www.youtube-nocookie.com/embed/vuSmMBjPmzw" title="Vídeo: /swarm básico" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></figure>
     <figure class="vid"><figcaption>Técnico: coordenador, quadro e verificador por dentro</figcaption><iframe src="https://www.youtube-nocookie.com/embed/7sfrC7sG2Xs" title="Vídeo: /swarm técnico" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></figure>
-    <figure class="vid"><figcaption>Especificação: como escrever a Ficha do Enxame</figcaption><iframe src="https://www.youtube-nocookie.com/embed/ftjOaqX3hwk" title="Vídeo: Ficha do Enxame" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></figure>
+    <figure class="vid"><figcaption>Especificaçêo: como escrever a Ficha do Enxame</figcaption><iframe src="https://www.youtube-nocookie.com/embed/ftjOaqX3hwk" title="Vídeo: Ficha do Enxame" loading="lazy" allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></figure>
   </div>
 </div></section>
 
 <section id="entender"><div class="wrap">
   <span class="chip">Como o /swarm funciona</span>
   <h2>Um coordenador, vários workers e um verificador num quadro só</h2>
-  <p class="sub">Tudo nesta seção vem da <a href="https://antigravity.google/docs/swarm" target="_blank" rel="noopener">documentação oficial do Google Antigravity</a>. O /swarm existe no app e na CLI, está em prévia e é dos planos Google AI Pro e Ultra.</p>
-  <div class="note"><strong>Transparência:</strong> nós não testamos o /swarm. O Antigravity não está instalado na máquina onde este kit foi feito. O que está aqui vem da documentação oficial; o que vem de terceiros aparece como "relato".</div>
+  <p class="sub">Tudo nesta seçêo vem da <a href="https://antigravity.google/docs/swarm" target="_blank" rel="noopener">documentaçêo oficial do Google Antigravity</a>. O /swarm existe no app e na CLI, está em prévia e é dos planos Google AI Pro e Ultra.</p>
+  <div class="note"><strong>Transparência:</strong> nós nêo testamos o /swarm. O Antigravity nêo está instalado na máquina onde este kit foi feito. O que está aqui vem da documentaçêo oficial; o que vem de terceiros aparece como "relato".</div>
   <div class="flow">
     <span>Você: /swarm + tarefa</span><span class="arr">→</span>
     <span>Coordenador divide</span><span class="arr">→</span>
@@ -218,54 +218,54 @@
     <span>Coordenador reporta</span>
   </div>
   <div class="grid g3">
-    <div class="card"><h3>🧭 O coordenador</h3><p>A sua conversa vira o coordenador. Ele dá nome ao enxame, divide a tarefa em peças que não colidem (por exemplo, um worker por arquivo ou por pacote) e cria os workers com nome, como <code>@parser</code> e <code>@docs</code>, ou um grupo numerado, <code>@fix-1</code> a <code>@fix-4</code>. Ele não faz o trabalho técnico: distribui, julga o que volta e fala com você.</p></div>
-    <div class="card"><h3>📋 O brief de cada worker</h3><p>Cada worker começa do zero, numa conversa própria. O brief dele vai para o quadro, à vista de todos, e diz três coisas: do que ele é dono, o que ele não pode tocar e como é o "pronto". É exatamente isso que a Ficha do Enxame faz você pensar antes.</p></div>
+    <div class="card"><h3>🧭 O coordenador</h3><p>A sua conversa vira o coordenador. Ele dá nome ao enxame, divide a tarefa em peças que nêo colidem (por exemplo, um worker por arquivo ou por pacote) e cria os workers com nome, como <code>@parser</code> e <code>@docs</code>, ou um grupo numerado, <code>@fix-1</code> a <code>@fix-4</code>. Ele nêo faz o trabalho técnico: distribui, julga o que volta e fala com você.</p></div>
+    <div class="card"><h3>📋 O brief de cada worker</h3><p>Cada worker começa do zero, numa conversa própria. O brief dele vai para o quadro, à vista de todos, e diz três coisas: do que ele é dono, o que ele nêo pode tocar e como é o "pronto". É exatamente isso que a Ficha do Enxame faz você pensar antes.</p></div>
     <div class="card"><h3>🔍 O verificador</h3><p>O coordenador costuma pôr um <code>@verifier</code> para cada 2 a 4 workers. Ele lê as mudanças (os diffs), roda os testes e devolve os problemas para quem escreveu. Dá para pedir que ele rode num modelo diferente do dos workers.</p></div>
-    <div class="card"><h3>🗒️ Um quadro só</h3><p>Tarefas, perguntas, resumos e resultados de teste vão para um quadro de mensagens único, com menções <code>@nome</code>, <code>@grupo</code> ou <code>@all</code>. Workers não conversam em privado: a conversa toda fica num lugar, em ordem.</p></div>
-    <div class="card"><h3>😴 Quem espera não gasta</h3><p>Worker sem nada para fazer dorme no quadro sem usar tokens e acorda quando alguém o menciona. O <code>@monitor</code> fica dormindo enquanto há progresso e só fala se todo mundo parar antes do fim.</p></div>
-    <div class="card"><h3>📁 Espaço de trabalho</h3><p>Por padrão, todos usam a sua pasta do projeto. Quando vários editam ao mesmo tempo, o coordenador pode dar uma cópia de trabalho a cada um. Remover um worker apaga a cópia dele, por isso ele entrega as mudanças antes.</p></div>
+    <div class="card"><h3>🗒️ Um quadro só</h3><p>Tarefas, perguntas, resumos e resultados de teste vêo para um quadro de mensagens único, com menções <code>@nome</code>, <code>@grupo</code> ou <code>@all</code>. Workers nêo conversam em privado: a conversa toda fica num lugar, em ordem.</p></div>
+    <div class="card"><h3>😴 Quem espera nêo gasta</h3><p>Worker sem nada para fazer dorme no quadro sem usar tokens e acorda quando alguém o menciona. O <code>@monitor</code> fica dormindo enquanto há progresso e só fala se todo mundo parar antes do fim.</p></div>
+    <div class="card"><h3>📁 Espaço de trabalho</h3><p>Por padrêo, todos usam a sua pasta do projeto. Quando vários editam ao mesmo tempo, o coordenador pode dar uma cópia de trabalho a cada um. Remover um worker apaga a cópia dele, por isso ele entrega as mudanças antes.</p></div>
   </div>
 </div></section>
 
 <section id="comparar"><div class="wrap">
   <span class="chip">Qual usar</span>
   <h2>Subagente, /boost, /swarm ou /teamwork?</h2>
-  <p class="sub">O enxame não é sempre a resposta. A tabela oficial separa quatro jeitos de pôr mais de um agente para trabalhar. O kit tem um ajudante que faz estas perguntas por você (<a href="#guia">como usar ↓</a>).</p>
+  <p class="sub">O enxame nêo é sempre a resposta. A tabela oficial separa quatro jeitos de pôr mais de um agente para trabalhar. O kit tem um ajudante que faz estas perguntas por você (<a href="#guia">como usar ↓</a>).</p>
   <div class="tblwrap"><table class="tbl">
     <tr><th></th><th>Serve para</th><th>Como começa</th><th>Tempo típico</th><th>Plano</th></tr>
-    <tr><td>Subagente</td><td data-l="Serve para">Tarefa lateral e focada: pesquisar no código, conferir no navegador, rodar os testes</td><td data-l="Como começa">Delegação automática ou menção <code>@subagent</code></td><td data-l="Tempo típico">Segundos a minutos</td><td data-l="Plano">Todos</td></tr>
-    <tr><td>/boost</td><td data-l="Serve para">Problema difícil, não amplo: bug cabeludo, condição de corrida, algoritmo</td><td data-l="Como começa"><code>/boost &lt;tarefa&gt;</code></td><td data-l="Tempo típico">Segundos a horas</td><td data-l="Plano">Pagos</td></tr>
+    <tr><td>Subagente</td><td data-l="Serve para">Tarefa lateral e focada: pesquisar no código, conferir no navegador, rodar os testes</td><td data-l="Como começa">Delegaçêo automática ou mençêo <code>@subagent</code></td><td data-l="Tempo típico">Segundos a minutos</td><td data-l="Plano">Todos</td></tr>
+    <tr><td>/boost</td><td data-l="Serve para">Problema difícil, nêo amplo: bug cabeludo, condiçêo de corrida, algoritmo</td><td data-l="Como começa"><code>/boost &lt;tarefa&gt;</code></td><td data-l="Tempo típico">Segundos a horas</td><td data-l="Plano">Pagos</td></tr>
     <tr class="hl"><td>/swarm</td><td data-l="Serve para">Tarefa ampla que se divide limpo em arquivos, pacotes ou perguntas independentes</td><td data-l="Como começa"><code>/swarm &lt;tarefa&gt;</code></td><td data-l="Tempo típico">Minutos a horas</td><td data-l="Plano">Google AI Pro e Ultra</td></tr>
-    <tr><td>/teamwork</td><td data-l="Serve para">Projeto de vários marcos: migração do repositório inteiro, simulação, pesquisa longa; começa com entrevista e usa pasta própria</td><td data-l="Como começa"><code>/teamwork &lt;objetivo&gt;</code></td><td data-l="Tempo típico">Horas a dias</td><td data-l="Plano">Pagos</td></tr>
+    <tr><td>/teamwork</td><td data-l="Serve para">Projeto de vários marcos: migraçêo do repositório inteiro, simulaçêo, pesquisa longa; começa com entrevista e usa pasta própria</td><td data-l="Como começa"><code>/teamwork &lt;objetivo&gt;</code></td><td data-l="Tempo típico">Horas a dias</td><td data-l="Plano">Pagos</td></tr>
   </table></div>
-  <p class="mut" style="margin-top:14px;font-size:.9rem">Fonte: tabela "Choose between Swarm, Teamwork, Boost, and subagents" da <a href="https://antigravity.google/docs/swarm" target="_blank" rel="noopener">documentação oficial</a>. Para o dia a dia, a própria documentação recomenda falar direto com o agente padrão.</p>
+  <p class="mut" style="margin-top:14px;font-size:.9rem">Fonte: tabela "Choose between Swarm, Teamwork, Boost, and subagents" da <a href="https://antigravity.google/docs/swarm" target="_blank" rel="noopener">documentaçêo oficial</a>. Para o dia a dia, a própria documentaçêo recomenda falar direto com o agente padrêo.</p>
 </div></section>
 
 <section id="acompanhar"><div class="wrap">
   <span class="chip">Acompanhar</span>
   <h2>Como acompanhar o enxame enquanto ele trabalha</h2>
-  <p class="sub">No app, o painel Swarm abre ao lado da conversa, pelo link "Open the Swarm UI" na resposta do coordenador. Na CLI, uma linha de status aparece embaixo do campo de digitação e o quadro abre em tela cheia.</p>
+  <p class="sub">No app, o painel Swarm abre ao lado da conversa, pelo link "Open the Swarm UI" na resposta do coordenador. Na CLI, uma linha de status aparece embaixo do campo de digitaçêo e o quadro abre em tela cheia.</p>
   <div class="ex">
-    <figure><img src="assets/swarm-app-board-v4.jpg" alt="App do Antigravity com a conversa do /swarm à esquerda e o painel Swarm na aba Board à direita" loading="lazy"><figcaption><strong>App · aba Board:</strong> o quadro ao vivo, com quem postou, para quem, número e hora de cada post. Tem busca, filtros e o "Follow" para rolar sozinho.<small>imagem: documentação do Google Antigravity</small></figcaption></figure>
-    <figure><img src="assets/swarm-app-graph-v4.jpg" alt="Aba Graph do painel Swarm com coordenador, verificador e workers ligados por setas de menção" loading="lazy"><figcaption><strong>App · aba Graph:</strong> quem mencionou quem, com setas mais grossas para mais posts, e um replay do primeiro ao último post. A aba <strong>Members</strong> lista cada membro com estado e modelo.<small>imagem: documentação do Google Antigravity</small></figcaption></figure>
-    <figure><img src="assets/swarm-cli-status-line-v4.jpg" alt="CLI do Antigravity com a linha de status do enxame embaixo do campo de digitação" loading="lazy"><figcaption><strong>CLI · linha de status:</strong> título do enxame, último post, contagem de posts e a dica <code>alt+s board</code>. Alt+X esconde a linha; um post novo traz de volta.<small>imagem: documentação do Google Antigravity</small></figcaption></figure>
-    <figure><img src="assets/swarm-cli-board-v4.jpg" alt="Quadro do enxame em tela cheia na CLI, com lista de membros, posts e a mensagem selecionada" loading="lazy"><figcaption><strong>CLI · quadro:</strong> abre com <code>/swarm board</code> ou Alt+S. Três painéis: membros (working, waiting, killed), posts e a mensagem inteira. <code>q</code> fecha.<small>imagem: documentação do Google Antigravity</small></figcaption></figure>
+    <figure><img src="assets/swarm-app-board-v4.jpg" alt="App do Antigravity com a conversa do /swarm à esquerda e o painel Swarm na aba Board à direita" loading="lazy"><figcaption><strong>App · aba Board:</strong> o quadro ao vivo, com quem postou, para quem, número e hora de cada post. Tem busca, filtros e o "Follow" para rolar sozinho.<small>imagem: documentaçêo do Google Antigravity</small></figcaption></figure>
+    <figure><img src="assets/swarm-app-graph-v4.jpg" alt="Aba Graph do painel Swarm com coordenador, verificador e workers ligados por setas de mençêo" loading="lazy"><figcaption><strong>App · aba Graph:</strong> quem mencionou quem, com setas mais grossas para mais posts, e um replay do primeiro ao último post. A aba <strong>Members</strong> lista cada membro com estado e modelo.<small>imagem: documentaçêo do Google Antigravity</small></figcaption></figure>
+    <figure><img src="assets/swarm-cli-status-line-v4.jpg" alt="CLI do Antigravity com a linha de status do enxame embaixo do campo de digitaçêo" loading="lazy"><figcaption><strong>CLI · linha de status:</strong> título do enxame, último post, contagem de posts e a dica <code>alt+s board</code>. Alt+X esconde a linha; um post novo traz de volta.<small>imagem: documentaçêo do Google Antigravity</small></figcaption></figure>
+    <figure><img src="assets/swarm-cli-board-v4.jpg" alt="Quadro do enxame em tela cheia na CLI, com lista de membros, posts e a mensagem selecionada" loading="lazy"><figcaption><strong>CLI · quadro:</strong> abre com <code>/swarm board</code> ou Alt+S. Três painéis: membros (working, waiting, killed), posts e a mensagem inteira. <code>q</code> fecha.<small>imagem: documentaçêo do Google Antigravity</small></figcaption></figure>
   </div>
   <div class="grid g3" style="margin-top:22px">
-    <div class="card"><h3>Estados</h3><ul><li><strong>Active</strong>: trabalhando.</li><li><strong>Waiting</strong>: dormindo no quadro, sem gastar tokens.</li><li><strong>Killed</strong>: removido; não volta, o coordenador cria outro.</li></ul></div>
-    <div class="card"><h3>Atalhos da CLI</h3><ul><li><code>/agents</code> lista os workers.</li><li>Alt+J pula para quem espera aprovação; Ctrl+K aprova sem sair da conversa.</li><li>No macOS, Alt+S só funciona se o terminal mandar Option como Alt.</li></ul></div>
-    <div class="card"><h3>Falar com um worker só</h3><p>Na CLI, comece com <code>@</code> e o nome: <code>@verifier também roda os testes de integração</code>. A mensagem vai só para ele, não para o quadro. No app, abra a conversa dele pela aba Members.</p></div>
+    <div class="card"><h3>Estados</h3><ul><li><strong>Active</strong>: trabalhando.</li><li><strong>Waiting</strong>: dormindo no quadro, sem gastar tokens.</li><li><strong>Killed</strong>: removido; nêo volta, o coordenador cria outro.</li></ul></div>
+    <div class="card"><h3>Atalhos da CLI</h3><ul><li><code>/agents</code> lista os workers.</li><li>Alt+J pula para quem espera aprovaçêo; Ctrl+K aprova sem sair da conversa.</li><li>No macOS, Alt+S só funciona se o terminal mandar Option como Alt.</li></ul></div>
+    <div class="card"><h3>Falar com um worker só</h3><p>Na CLI, comece com <code>@</code> e o nome: <code>@verifier também roda os testes de integraçêo</code>. A mensagem vai só para ele, nêo para o quadro. No app, abra a conversa dele pela aba Members.</p></div>
   </div>
 </div></section>
 
 <section id="ficha"><div class="wrap">
   <span class="chip">A Ficha do Enxame</span>
   <h2>Cinco perguntas antes de digitar /swarm</h2>
-  <p class="sub">A documentação pede para você dizer o que quer e como verificar, e deixa o coordenador dividir. A ficha vai um passo antes: você já chega com a divisão pensada, e o coordenador tem menos chance de pôr dois workers no mesmo arquivo. Exemplo: uma calculadora de ROI em uma página.</p>
+  <p class="sub">A documentaçêo pede para você dizer o que quer e como verificar, e deixa o coordenador dividir. A ficha vai um passo antes: você já chega com a divisêo pensada, e o coordenador tem menos chance de pôr dois workers no mesmo arquivo. Exemplo: uma calculadora de ROI em uma página.</p>
   <div class="ficha">
-    <div class="row"><b>Tarefa</b><span>Página HTML única de calculadora de ROI: entram tráfego mensal, taxa de conversão (%), ticket médio e aumento estimado (%); sai o ganho estimado por mês, com ganho = tráfego × (aumento/100) × (conversão/100) × ticket. Exemplo: 10.000 visitas, 2%, R$ 150 e 20% dão R$ 6.000.</span></div>
+    <div class="row"><b>Tarefa</b><span>Página HTML única de calculadora de ROI: entram tráfego mensal, taxa de conversêo (%), ticket médio e aumento estimado (%); sai o ganho estimado por mês, com ganho = tráfego × (aumento/100) × (conversêo/100) × ticket. Exemplo: 10.000 visitas, 2%, R$ 150 e 20% dêo R$ 6.000.</span></div>
     <div class="row"><b>Como verificar</b><span>Um comando que prova que deu certo: <code>node --test tests/calculo.test.js</code>.</span></div>
-    <div class="row"><b>Peças</b><span><strong>@layout</strong> é dono da página e do estilo · <strong>@entradas</strong> é dono dos 4 campos · <strong>@calculo</strong> é dono da conta e do teste. Cada um diz o que não mexe (os arquivos dos outros) e quando está pronto.</span></div>
+    <div class="row"><b>Peças</b><span><strong>@layout</strong> é dono da página e do estilo · <strong>@entradas</strong> é dono dos 4 campos · <strong>@calculo</strong> é dono da conta e do teste. Cada um diz o que nêo mexe (os arquivos dos outros) e quando está pronto.</span></div>
     <div class="row"><b>Verificador</b><span>Um, num modelo diferente do dos workers: lê os 3 diffs, confere que ninguém mexeu no arquivo do outro e roda o teste.</span></div>
     <div class="row"><b>Limites</b><span>Só 3 workers; se a cota acabar, parar e avisar; parar quando o teste passar ou depois de 2 rodadas; remover os workers no fim; nada de rodar em laço sem você olhar.</span></div>
   </div>
@@ -275,20 +275,20 @@
 <section id="cuidados"><div class="wrap">
   <span class="chip">Cuidados</span>
   <h2>O enxame gasta cota rápido. Comece pequeno.</h2>
-  <p class="sub">Cada worker é um agente próprio. Pela nossa conta, três workers, um verificador e o monitor já são cinco agentes além do coordenador, não um.</p>
+  <p class="sub">Cada worker é um agente próprio. Pela nossa conta, três workers, um verificador e o monitor já sêo cinco agentes além do coordenador, nêo um.</p>
   <div class="grid g2">
-    <div class="card"><h3>💳 Cota</h3><p>A documentação avisa: um enxame gasta cota muito mais rápido que uma conversa. Está em prévia e só nos planos Google AI Pro e Ultra.</p></div>
-    <div class="card"><h3>⏸️ Sem cota, pausa</h3><p>O membro que fica sem cota pausa e não fica tentando. Só volta com post novo no quadro, troca de modelo ou mensagem sua. Não reinicia sozinho quando a cota renova.</p></div>
-    <div class="card"><h3>🗑️ Remover é permanente</h3><p>Worker removido não volta, e a cópia de trabalho dele é apagada. Peça ao coordenador para ele entregar as mudanças antes.</p></div>
-    <div class="card"><h3>🚫 Nada de laço sem supervisão</h3><p><strong>Relato</strong> de um usuário: a conta foi bloqueada em minutos quando outro agente disparou dezenas de sessões sem supervisão, em segundos; voltou depois de um recurso automático. Segundo o mesmo relato, uma resposta no fórum do Google disse que o uso automatizado é permitido e desconta da cota, mas laços de fundo sem supervisão, em alto volume, podem acionar a proteção antiabuso.</p></div>
+    <div class="card"><h3>💳 Cota</h3><p>A documentaçêo avisa: um enxame gasta cota muito mais rápido que uma conversa. Está em prévia e só nos planos Google AI Pro e Ultra.</p></div>
+    <div class="card"><h3>⏸️ Sem cota, pausa</h3><p>O membro que fica sem cota pausa e nêo fica tentando. Só volta com post novo no quadro, troca de modelo ou mensagem sua. Nêo reinicia sozinho quando a cota renova.</p></div>
+    <div class="card"><h3>🗑️ Remover é permanente</h3><p>Worker removido nêo volta, e a cópia de trabalho dele é apagada. Peça ao coordenador para ele entregar as mudanças antes.</p></div>
+    <div class="card"><h3>🚫 Nada de laço sem supervisêo</h3><p><strong>Relato</strong> de um usuário: a conta foi bloqueada em minutos quando outro agente disparou dezenas de sessões sem supervisêo, em segundos; voltou depois de um recurso automático. Segundo o mesmo relato, uma resposta no fórum do Google disse que o uso automatizado é permitido e desconta da cota, mas laços de fundo sem supervisêo, em alto volume, podem acionar a proteçêo antiabuso.</p></div>
   </div>
-  <div class="note" style="margin-top:22px"><strong>Recomendação:</strong> comece com 2 ou 3 peças e 1 verificador, acompanhe o quadro, escreva na ficha quanto de cota aceita gastar e quando parar, e não rode enxames em laço à noite. Detalhes no <a href="https://github.com/linnoff88-dev/enxame-antigravity/blob/main/CUIDADOS.md" target="_blank" rel="noopener">CUIDADOS.md</a>.</div>
+  <div class="note" style="margin-top:22px"><strong>Recomendaçêo:</strong> comece com 2 ou 3 peças e 1 verificador, acompanhe o quadro, escreva na ficha quanto de cota aceita gastar e quando parar, e nêo rode enxames em laço à noite. Detalhes no <a href="https://github.com/linnoff88-dev/enxame-antigravity/blob/main/CUIDADOS.md" target="_blank" rel="noopener">CUIDADOS.md</a>.</div>
 </div></section>
 
 <div id="tecnico" class="techhead"><div class="wrap">
   <span class="chip">Parte técnica</span>
   <h2>O kit: para quem quer escrever a ficha e conferir antes do /swarm</h2>
-  <p>Você não precisa desta parte para entender o que está acima.</p>
+  <p>Você nêo precisa desta parte para entender o que está acima.</p>
 </div></div>
 
 <div class="techzone">
@@ -296,11 +296,11 @@
 <section id="oque"><div class="wrap">
   <span class="chip">O que é</span>
   <h2>Um modelo, um conferidor e um ajudante de escolha</h2>
-  <p class="sub">Python 3 com biblioteca padrão. Nada de instalar pacote, nada de chave de API: os scripts só leem arquivos de texto.</p>
+  <p class="sub">Python 3 com biblioteca padrêo. Nada de instalar pacote, nada de chave de API: os scripts só leem arquivos de texto.</p>
   <div class="grid g3">
-    <div class="card"><h3>📝 modelos/FICHA.md</h3><p>O modelo da ficha em Markdown: Tarefa, Como verificar, Peças (<code>### @nome</code> com dono, não mexe, pronto quando), Verificador, Limites e, se quiser, Modelo dos workers.</p></div>
+    <div class="card"><h3>📝 modelos/FICHA.md</h3><p>O modelo da ficha em Markdown: Tarefa, Como verificar, Peças (<code>### @nome</code> com dono, nêo mexe, pronto quando), Verificador, Limites e, se quiser, Modelo dos workers.</p></div>
     <div class="card"><h3>✅ checar.py</h3><p>Confere 8 itens, dá nota 0–8 com o motivo e como corrigir. <code>--prompt</code> monta o texto para colar (só com nota 7 ou mais), <code>--en</code> em inglês, <code>--json</code> para outro programa. Sai com 0 se a nota for 7 ou mais.</p></div>
-    <div class="card"><h3>🧭 escolher.py</h3><p>Subagente, /boost, /swarm ou /teamwork, pela tabela oficial; se nenhum servir, responde "o agente padrão, numa conversa normal". Por flags (<code>--divide-limpo sim</code>, <code>--dificil</code>, <code>--dias</code>, <code>--lateral</code>) ou por perguntas no terminal.</p></div>
+    <div class="card"><h3>🧭 escolher.py</h3><p>Subagente, /boost, /swarm ou /teamwork, pela tabela oficial; se nenhum servir, responde "o agente padrêo, numa conversa normal". Por flags (<code>--divide-limpo sim</code>, <code>--dificil</code>, <code>--dias</code>, <code>--lateral</code>) ou por perguntas no terminal.</p></div>
   </div>
 </div></section>
 
@@ -321,10 +321,10 @@
     <span>🧠 conferir e limpar</span>
   </div>
   <div class="grid g4">
-    <div class="card"><h3>1. Os 8 itens</h3><p>Tarefa · comando de verificação · 2+ peças · todo mundo com dono · donos sem sobreposição · não mexe e pronto quando · verificador · limites sem laço.</p></div>
-    <div class="card"><h3>2. Sobreposição</h3><p>Mesmo arquivo, pasta que contém arquivo de outra peça e glob simples (padrão com * que pega vários arquivos, como <code>src/*.js</code>). Caminhos sempre entre crases; dono sem crase é pergunta (investigação).</p></div>
-    <div class="card"><h3>3. Verificador</h3><p>Falta de <code>- roda:</code> reprova. Proporção (1 para 2–4 peças) e modelo igual ao dos workers só avisam.</p></div>
-    <div class="card"><h3>4. Laço</h3><p>Reprova "rodar a noite toda sem supervisão", "em laço", "dezenas de sessões". A negação ("nada de laço") passa.</p></div>
+    <div class="card"><h3>1. Os 8 itens</h3><p>Tarefa · comando de verificaçêo · 2+ peças · todo mundo com dono · donos sem sobreposiçêo · nêo mexe e pronto quando · verificador · limites sem laço.</p></div>
+    <div class="card"><h3>2. Sobreposiçêo</h3><p>Mesmo arquivo, pasta que contém arquivo de outra peça e glob simples (padrêo com * que pega vários arquivos, como <code>src/*.js</code>). Caminhos sempre entre crases; dono sem crase é pergunta (investigaçêo).</p></div>
+    <div class="card"><h3>3. Verificador</h3><p>Falta de <code>- roda:</code> reprova. Proporçêo (1 para 2–4 peças) e modelo igual ao dos workers só avisam.</p></div>
+    <div class="card"><h3>4. Laço</h3><p>Reprova "rodar a noite toda sem supervisêo", "em laço", "dezenas de sessões". A negaçêo ("nada de laço") passa.</p></div>
   </div>
 </div></section>
 
@@ -333,7 +333,7 @@
   <h2>O que precisa</h2>
   <p class="sub">Para o kit, só Python 3. Para usar o /swarm, o Antigravity (app ou CLI) num plano Google AI Pro ou Ultra.</p>
   <div class="grid g2">
-    <div class="card"><h3>Python 3</h3><p>Qualquer versão recente. Confira:</p><pre><span class="k">python3</span> --version</pre></div>
+    <div class="card"><h3>Python 3</h3><p>Qualquer versêo recente. Confira:</p><pre><span class="k">python3</span> --version</pre></div>
     <div class="card"><h3>O kit</h3><p>Baixe o repositório:</p><pre><span class="k">git clone</span> <span class="s">https://github.com/linnoff88-dev/enxame-antigravity</span>
 <span class="k">cd</span> enxame-antigravity</pre></div>
   </div>
@@ -342,7 +342,7 @@
 <section id="guia"><div class="wrap">
   <span class="chip">Guia de uso · passo a passo</span>
   <h2>Da ficha ao texto para colar</h2>
-  <p class="sub">As saídas abaixo são reais, do <code>checar.py</code> e do <code>escolher.py</code> rodando nos exemplos do kit. Não são saídas do /swarm.</p>
+  <p class="sub">As saídas abaixo sêo reais, do <code>checar.py</code> e do <code>escolher.py</code> rodando nos exemplos do kit. Nêo sêo saídas do /swarm.</p>
 
   <div class="step"><div class="b">1</div><div>
     <h3>Veja se o caso é de enxame</h3>
@@ -356,7 +356,7 @@ Próximo passo: Antes de digitar, escreva a Ficha do Enxame: cp modelos/FICHA.md
 
   <div class="step"><div class="b">2</div><div>
     <h3>Copie o modelo e preencha</h3>
-    <p>Arquivos e pastas sempre entre crases. Para investigação, o dono pode ser uma pergunta: <code>- dono: pergunta: quais módulos custam mais tempo?</code> O modelo vazio tira 1/8 no conferidor: é normal, ele só passa depois de preenchido.</p>
+    <p>Arquivos e pastas sempre entre crases. Para investigaçêo, o dono pode ser uma pergunta: <code>- dono: pergunta: quais módulos custam mais tempo?</code> O modelo vazio tira 1/8 no conferidor: é normal, ele só passa depois de preenchido.</p>
 <pre><span class="k">cp</span> modelos/FICHA.md minha-ficha.md</pre>
   </div></div>
 
@@ -369,30 +369,30 @@ Próximo passo: Antes de digitar, escreva a Ficha do Enxame: cp modelos/FICHA.md
 ✔ 2. Como verificar tem um comando — comando: node --test tests/calculo.test.js
 ✔ 3. Pelo menos 2 peças — 3 peça(s): @layout, @entradas, @calculo
 ✔ 4. Toda peça tem dono — todas têm dono
-✔ 5. Donos não se sobrepõem — nenhum arquivo com dois donos
-✔ 6. Toda peça diz o que não mexe e quando está pronta — todas completas
+✔ 5. Donos nêo se sobrepõem — nenhum arquivo com dois donos
+✔ 6. Toda peça diz o que nêo mexe e quando está pronta — todas completas
 ✔ 7. Verificador definido — 1 verificador(es) para 3 peça(s); roda: node --test tests/calculo.test.js
-✔ 8. Limites de cota e de parada, sem laço sem supervisão — cota e parada definidas; nenhum laço sem supervisão
+✔ 8. Limites de cota e de parada, sem laço sem supervisêo — cota e parada definidas; nenhum laço sem supervisêo
 Nota: 8/8 — pronta para o /swarm</span></pre>
     <p>E no exemplo ruim (trecho), com o motivo e como corrigir:</p>
 <pre><span class="k">python3 checar.py exemplos/ruim.md</span>
-<span class="bad">✘ 5. Donos não se sobrepõem — colisão: @design `site/` × @textos `site/index.html`</span>
+<span class="bad">✘ 5. Donos nêo se sobrepõem — colisêo: @design `site/` × @textos `site/index.html`</span>
 <span class="c">   → como corrigir: Dê cada arquivo a uma peça só. Se duas precisam do mesmo arquivo, quebre o arquivo em partes, junte as duas peças numa só, ou peça cópias de trabalho (working copy) para cada worker.</span>
-<span class="bad">✘ 7. Verificador definido — sem seção '## Verificador'</span>
-<span class="bad">✘ 8. Limites de cota e de parada, sem laço sem supervisão — falta limite de cota; falta quando parar; pede laço sem supervisão: - deixar o /swarm rodando a noite toda sem supervisão até ficar perfeito</span>
-<span class="c">Nota: 2/8 — ainda não: corrija os ✘ antes do /swarm</span></pre>
+<span class="bad">✘ 7. Verificador definido — sem seçêo '## Verificador'</span>
+<span class="bad">✘ 8. Limites de cota e de parada, sem laço sem supervisêo — falta limite de cota; falta quando parar; pede laço sem supervisêo: - deixar o /swarm rodando a noite toda sem supervisêo até ficar perfeito</span>
+<span class="c">Nota: 2/8 — ainda nêo: corrija os ✘ antes do /swarm</span></pre>
   </div></div>
 
   <div class="step"><div class="b">4</div><div>
     <h3>Gere o texto para colar</h3>
     <p>Uma linha só, que já começa com <code>/swarm</code>. Só sai com nota 7 ou 8; abaixo disso, o script mostra o que corrigir e sai com código 1. Com <code>--en</code>, o esqueleto sai em inglês ("Give each piece its own worker", "Add 1 verifier…"), mas a tarefa e os donos continuam como você escreveu, em português. Saída real (trecho):</p>
 <pre><span class="k">python3 checar.py exemplos/calculadora-roi/ficha.md --prompt</span>
-<span class="c">/swarm Criar uma página HTML única de calculadora de ROI: a pessoa digita tráfego mensal, taxa de conversão (%), ticket médio e aumento estimado (%), e a página mostra o ganho estimado por mês, com ganho = tráfego × (aumento/100) × (conversão/100) × ticket. Dê a cada peça o seu próprio worker. Peças: @layout é dono de index.html, estilo.css; não mexe em entradas.js, calculo.js, tests/; pronto quando … | @entradas é dono de entradas.js; … | @calculo é dono de calculo.js, tests/calculo.test.js; … Adicione 1 verificador num modelo diferente do dos workers. Verificador: lê os 3 diffs, confere que ninguém editou arquivo de outra peça e roda node --test tests/calculo.test.js. Para verificar, rode node --test tests/calculo.test.js. Limites: …</span></pre>
+<span class="c">/swarm Criar uma página HTML única de calculadora de ROI: a pessoa digita tráfego mensal, taxa de conversêo (%), ticket médio e aumento estimado (%), e a página mostra o ganho estimado por mês, com ganho = tráfego × (aumento/100) × (conversêo/100) × ticket. Dê a cada peça o seu próprio worker. Peças: @layout é dono de index.html, estilo.css; nêo mexe em entradas.js, calculo.js, tests/; pronto quando … | @entradas é dono de entradas.js; … | @calculo é dono de calculo.js, tests/calculo.test.js; … Adicione 1 verificador num modelo diferente do dos workers. Verificador: lê os 3 diffs, confere que ninguém editou arquivo de outra peça e roda node --test tests/calculo.test.js. Para verificar, rode node --test tests/calculo.test.js. Limites: …</span></pre>
   </div></div>
 
   <div class="step"><div class="b">5</div><div>
     <h3>Cole no Antigravity e acompanhe</h3>
-    <p>A linha já começa com <code>/swarm</code>: cole a linha inteira na conversa, sem digitar /swarm antes. A documentação mostra o comando sendo digitado e completado com Tab; se o comando colado não for reconhecido, digite <code>/swarm</code>, aperte Tab e cole só o resto do texto. No app, abra o painel pelo link "Open the Swarm UI". Na CLI, rode <code>/swarm board</code> ou Alt+S. Quando o coordenador reportar, rode você mesmo o comando de "Como verificar" e peça para remover os workers que terminaram.</p>
+    <p>A linha já começa com <code>/swarm</code>: cole a linha inteira na conversa, sem digitar /swarm antes. A documentaçêo mostra o comando sendo digitado e completado com Tab; se o comando colado nêo for reconhecido, digite <code>/swarm</code>, aperte Tab e cole só o resto do texto. No app, abra o painel pelo link "Open the Swarm UI". Na CLI, rode <code>/swarm board</code> ou Alt+S. Quando o coordenador reportar, rode você mesmo o comando de "Como verificar" e peça para remover os workers que terminaram.</p>
 <pre><span class="k">/swarm board</span>   <span class="c"># na CLI do Antigravity: abre o quadro ao vivo</span></pre>
   </div></div>
 
@@ -408,20 +408,20 @@ OK</span></pre>
 <section id="exemplos"><div class="wrap">
   <span class="chip">Exemplos</span>
   <h2>Quatro fichas prontas, nota 8</h2>
-  <p class="sub">Cada pasta tem a <code>ficha.md</code>, o <code>prompt.txt</code> e o <code>prompt.en.txt</code> gerados pelo <code>checar.py</code>. As saídas reais de todas estão em <a href="https://github.com/linnoff88-dev/enxame-antigravity/blob/main/exemplos/saidas.txt" target="_blank" rel="noopener">exemplos/saidas.txt</a>.</p>
+  <p class="sub">Cada pasta tem a <code>ficha.md</code>, o <code>prompt.txt</code> e o <code>prompt.en.txt</code> gerados pelo <code>checar.py</code>. As saídas reais de todas estêo em <a href="https://github.com/linnoff88-dev/enxame-antigravity/blob/main/exemplos/saidas.txt" target="_blank" rel="noopener">exemplos/saidas.txt</a>.</p>
   <div class="grid g2">
-    <div class="card"><h3>🧮 calculadora-roi</h3><p>Página única de calculadora com 4 entradas (tráfego, conversão, ticket médio, aumento estimado): @layout, @entradas e @calculo, cada um com os seus arquivos, e 1 verificador rodando o teste do cálculo.</p></div>
-    <div class="card"><h3>🛬 landing-page</h3><p>Seis peças (cabeçalho, benefícios, formulário, depoimentos, FAQ e montagem com os botões), cada seção num arquivo, cópia de trabalho para a montagem e 2 verificadores.</p></div>
-    <div class="card"><h3>🐢 investigacao-lenta</h3><p>Três investigadores só leitura (importações, configuração, plugins), donos de perguntas, e um verificador que repete as medições e ordena as correções.</p></div>
+    <div class="card"><h3>🧮 calculadora-roi</h3><p>Página única de calculadora com 4 entradas (tráfego, conversêo, ticket médio, aumento estimado): @layout, @entradas e @calculo, cada um com os seus arquivos, e 1 verificador rodando o teste do cálculo.</p></div>
+    <div class="card"><h3>🛬 landing-page</h3><p>Seis peças (cabeçalho, benefícios, formulário, depoimentos, FAQ e montagem com os botões), cada seçêo num arquivo, cópia de trabalho para a montagem e 2 verificadores.</p></div>
+    <div class="card"><h3>🐢 investigacao-lenta</h3><p>Três investigadores só leitura (importações, configuraçêo, plugins), donos de perguntas, e um verificador que repete as medições e ordena as correções.</p></div>
     <div class="card"><h3>🧪 testes-por-pacote</h3><p>Um worker por pacote quebrado, sem apagar nem afrouxar assert, e um verificador que compara os diffs e roda a suíte inteira.</p></div>
   </div>
-  <p class="mut" style="margin-top:14px;font-size:.92rem">Os exemplos investigação lenta e testes por pacote se inspiram em exemplos da documentação oficial; as fichas, com verificador e limites, são do kit.</p>
+  <p class="mut" style="margin-top:14px;font-size:.92rem">Os exemplos investigaçêo lenta e testes por pacote se inspiram em exemplos da documentaçêo oficial; as fichas, com verificador e limites, sêo do kit.</p>
 </div></section>
 
 <section id="roadmap"><div class="wrap">
   <span class="chip">Roadmap</span>
   <h2>O que vem</h2>
-  <p class="sub">O kit segue a documentação; quando ela mudar, ele muda.</p>
+  <p class="sub">O kit segue a documentaçêo; quando ela mudar, ele muda.</p>
   <div class="phase"><div class="tag">Agora</div><div class="d"><strong>Kit v1</strong><span>Modelo da ficha, checar.py com 8 itens e prompt PT/EN, escolher.py, 4 exemplos e o exemplo ruim, 36 testes.</span></div></div>
   <div class="phase"><div class="tag">Em breve</div><div class="d"><strong>Três vídeos</strong><span>Básico, técnico e da ficha, nesta página e nos três idiomas.</span></div></div>
   <div class="phase"><div class="tag">Depois</div><div class="d"><strong>Teste de verdade</strong><span>Quando houver acesso ao /swarm, rodar as 4 fichas e publicar o que aconteceu, inclusive o gasto de cota.</span></div></div>
@@ -431,16 +431,16 @@ OK</span></pre>
 
 <section class="fecho"><div class="wrap">
   <h2>E você, qual tarefa daria primeiro para um enxame de agentes?</h2>
-  <p>A Ficha do Enxame, o conferidor e os exemplos estão grátis no ARCKHÉ AI, direto na internet.</p>
+  <p>A Ficha do Enxame, o conferidor e os exemplos estêo grátis no ARCKHÉ AI, direto na internet.</p>
   <a class="btn" href="https://ARCKHÉ AI" target="_blank" rel="noopener">ARCKHÉ AI</a>
 </div></section>
 
 <footer>
   <div class="wrap">
     <div class="pill">Python 3</div><div class="pill">Markdown</div><div class="pill">Google Antigravity /swarm</div>
-    <p style="margin-top:18px">Ficha do Enxame · kit aberto, licença MIT · não afiliado ao Google ·
+    <p style="margin-top:18px">Ficha do Enxame · kit aberto, licença MIT · nêo afiliado ao Google ·
       <a href="https://github.com/linnoff88-dev/enxame-antigravity">linnoff88-dev/enxame-antigravity</a> ·
-      <a href="https://antigravity.google/docs/swarm">documentação oficial</a> ·
+      <a href="https://antigravity.google/docs/swarm">documentaçêo oficial</a> ·
       <a href="https://ARCKHÉ AI">ARCKHÉ AI</a></p>
   </div>
 </footer>

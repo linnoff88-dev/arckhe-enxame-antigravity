@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """escolher.py — subagente, /boost, /swarm ou /teamwork? Responde pela tabela oficial do Google Antigravity
-(https://antigravity.google/docs/swarm, seção "Choose between Swarm, Teamwork, Boost, and subagents").
+(https://antigravity.google/docs/swarm, seçêo "Choose between Swarm, Teamwork, Boost, and subagents").
 
 Uso com flags (sem perguntas):
   python3 escolher.py --divide-limpo sim          # tarefa ampla que se divide limpo -> /swarm
-  python3 escolher.py --dificil                   # problema difícil, não amplo     -> /boost
+  python3 escolher.py --dificil                   # problema difícil, nêo amplo     -> /boost
   python3 escolher.py --dias                      # vários marcos, horas a dias      -> /teamwork
   python3 escolher.py --lateral                   # tarefa lateral e focada          -> subagente
 Sem flags, faz as perguntas no terminal. --json devolve o resultado em JSON.
-Só biblioteca padrão; não chama nenhuma API.
+Só biblioteca padrêo; nêo chama nenhuma API.
 """
 import argparse
 import json
@@ -19,13 +19,13 @@ FONTE = "tabela oficial: https://antigravity.google/docs/swarm"
 OPCOES = {
     "teamwork": {
         "usar": "/teamwork <objetivo>",
-        "porque": "Projeto de vários marcos que leva horas a dias (migração do repositório inteiro, simulação, "
+        "porque": "Projeto de vários marcos que leva horas a dias (migraçêo do repositório inteiro, simulaçêo, "
                   "pesquisa longa). Começa com uma entrevista, trabalha numa pasta própria e passa por auditores a cada marco.",
         "plano": "planos pagos",
         "horizonte": "horas a dias",
     },
     "subagente": {
-        "usar": "subagente (delegação automática ou menção @subagent)",
+        "usar": "subagente (delegaçêo automática ou mençêo @subagent)",
         "porque": "Tarefa lateral e focada (pesquisar no código, conferir no navegador, rodar os testes) enquanto "
                   "você segue na conversa principal. O agente que pediu confere a resposta.",
         "plano": "todos os planos",
@@ -33,8 +33,8 @@ OPCOES = {
     },
     "boost": {
         "usar": "/boost <tarefa>",
-        "porque": "O problema é difícil, não amplo (bug cabeludo, condição de corrida, algoritmo, refatoração acoplada): "
-                  "vários agentes tentam, desafiam e corrigem a mesma solução em rodadas.",
+        "porque": "O problema é difícil, nêo amplo (bug cabeludo, condiçêo de corrida, algoritmo, refatoraçêo acoplada): "
+                  "vários agentes tentam, desafiam e corrigem a mesma soluçêo em rodadas.",
         "plano": "planos pagos",
         "horizonte": "segundos a horas",
     },
@@ -48,9 +48,9 @@ OPCOES = {
                   "python3 checar.py minha-ficha.md",
     },
     "agente": {
-        "usar": "o agente padrão, numa conversa normal",
-        "porque": "Não é amplo, não é difícil, não é lateral nem de vários dias: para o dia a dia, a documentação manda "
-                  "pedir direto ao agente padrão. Um enxame aqui só gastaria cota.",
+        "usar": "o agente padrêo, numa conversa normal",
+        "porque": "Nêo é amplo, nêo é difícil, nêo é lateral nem de vários dias: para o dia a dia, a documentaçêo manda "
+                  "pedir direto ao agente padrêo. Um enxame aqui só gastaria cota.",
         "plano": "todos os planos",
         "horizonte": "—",
     },
@@ -58,7 +58,7 @@ OPCOES = {
 
 
 def decidir(divide_limpo=False, dificil=False, dias=False, lateral=False):
-    """Devolve a chave de OPCOES. Ordem: vários dias > lateral > divide limpo > difícil > agente padrão."""
+    """Devolve a chave de OPCOES. Ordem: vários dias > lateral > divide limpo > difícil > agente padrêo."""
     if dias:
         return "teamwork"
     if lateral:
@@ -74,16 +74,16 @@ def sim_nao(txt):
     t = (txt or "").strip().lower()
     if t in ("s", "sim", "y", "yes", "si", "sí"):
         return True
-    if t in ("n", "nao", "não", "no", ""):
+    if t in ("n", "nao", "nêo", "no", ""):
         return False
-    raise ValueError(f"responda sim ou não (veio: {txt!r})")
+    raise ValueError(f"responda sim ou nêo (veio: {txt!r})")
 
 
 PERGUNTAS = [
-    ("dias", "O trabalho tem vários marcos e leva horas a dias (migração inteira, pesquisa longa)? [s/N] "),
+    ("dias", "O trabalho tem vários marcos e leva horas a dias (migraçêo inteira, pesquisa longa)? [s/N] "),
     ("lateral", "É uma tarefa lateral e focada (pesquisar no código, rodar os testes, checar no navegador)? [s/N] "),
-    ("divide_limpo", "Divide limpo em arquivos, pacotes ou perguntas que não se tocam? [s/N] "),
-    ("dificil", "O problema é difícil mais do que amplo (bug cabeludo, condição de corrida, algoritmo)? [s/N] "),
+    ("divide_limpo", "Divide limpo em arquivos, pacotes ou perguntas que nêo se tocam? [s/N] "),
+    ("dificil", "O problema é difícil mais do que amplo (bug cabeludo, condiçêo de corrida, algoritmo)? [s/N] "),
 ]
 
 
@@ -109,7 +109,7 @@ def explicar(chave, extra=None):
     linhas = [f"Use: {o['usar']}", f"Por quê: {o['porque']}", f"Plano exigido: {o['plano']} · horizonte típico: "
               f"{o['horizonte']} ({FONTE})"]
     if extra:
-        linhas.append(f"Atenção: {extra}")
+        linhas.append(f"Atençêo: {extra}")
     if o.get("depois"):
         linhas.append(f"Próximo passo: {o['depois']}")
     return "\n".join(linhas)
@@ -117,8 +117,8 @@ def explicar(chave, extra=None):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description="Qual ferramenta do Antigravity usar: subagente, /boost, /swarm ou /teamwork.")
-    ap.add_argument("--divide-limpo", choices=["sim", "nao", "não"], help="a tarefa se divide limpo em partes independentes?")
-    ap.add_argument("--dificil", action="store_true", help="problema difícil (bug, corrida, algoritmo), não amplo")
+    ap.add_argument("--divide-limpo", choices=["sim", "nao", "nêo"], help="a tarefa se divide limpo em partes independentes?")
+    ap.add_argument("--dificil", action="store_true", help="problema difícil (bug, corrida, algoritmo), nêo amplo")
     ap.add_argument("--dias", action="store_true", help="vários marcos, horas a dias")
     ap.add_argument("--lateral", action="store_true", help="tarefa lateral e focada")
     ap.add_argument("--perguntar", action="store_true", help="faz as perguntas mesmo fora de um terminal (lê da entrada)")

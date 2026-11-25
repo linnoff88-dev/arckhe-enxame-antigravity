@@ -7,8 +7,8 @@ Uso:
   python3 checar.py ficha.md --prompt --en   # o esqueleto do texto em inglês
   python3 checar.py ficha.md --json     # resultado em JSON
 
-Código de saída: 0 se a nota for 7 ou mais; 1 se for menor; 2 se o arquivo não abrir.
-Só biblioteca padrão. O script lê o Markdown; ele não chama o Antigravity nem nenhuma API.
+Código de saída: 0 se a nota for 7 ou mais; 1 se for menor; 2 se o arquivo nêo abrir.
+Só biblioteca padrêo. O script lê o Markdown; ele nêo chama o Antigravity nem nenhuma API.
 """
 import argparse
 import fnmatch
@@ -30,7 +30,7 @@ def norm(txt):
 
 
 def preenchido(txt):
-    """texto com conteúdo de verdade (não vazio, não marcador <...>, não reticências)."""
+    """texto com conteúdo de verdade (nêo vazio, nêo marcador <...>, nêo reticências)."""
     t = re.sub(r"<[^>]*>", "", txt or "").strip(" .…-*\t\n")
     return len(t) >= 3
 
@@ -94,7 +94,7 @@ def ler_ficha(texto):
             if m:
                 txt = m.group(1).strip()
                 kv = re.match(r"^([^:]{1,40}):\s*(.*)$", txt)
-                # linha de modelo ("cota: <quanto aceita gastar>") não conta como limite
+                # linha de modelo ("cota: <quanto aceita gastar>") nêo conta como limite
                 if preenchido(kv.group(2) if kv else txt):
                     ficha["limites"].append(txt)
     ficha["tarefa"] = ficha["tarefa"].strip()
@@ -126,7 +126,7 @@ def caminhos(txt):
     return [p.strip() for p in re.findall(r"`([^`]+)`", txt or "") if p.strip() and not p.strip().startswith("<")]
 
 
-# ---------- sobreposição de donos (item 5) ----------
+# ---------- sobreposiçêo de donos (item 5) ----------
 
 CURINGA = re.compile(r"[*?\[]")
 
@@ -163,7 +163,7 @@ def se_sobrepoe(a, b):
     return True
 
 
-# ---------- laço sem supervisão (item 8) ----------
+# ---------- laço sem supervisêo (item 8) ----------
 
 RISCO = re.compile(
     r"(sem supervis|unattended|overnight|toda (a )?noite|a noite (toda|inteira)|madrugada|headless|\bcron\b|"
@@ -171,12 +171,12 @@ RISCO = re.compile(
     r"infinit|a cada \d+ ?(s|seg|min)\b|every \d+ ?(s|sec|min)\b|em massa|alto volume|high volume)",
     re.I)
 NEGA = re.compile(
-    r"(\bn[aã]o\b|\bnunca\b|\bnada de\b|\bjamais\b|\bevite\b|\bproibido\b|\bsem rodar\b|\bnem\b|"
+    r"(\bn[aê]o\b|\bnunca\b|\bnada de\b|\bjamais\b|\bevite\b|\bproibido\b|\bsem rodar\b|\bnem\b|"
     r"\bnever\b|\bdon'?t\b|\bdo not\b|\bavoid\b|\bno (background |unattended )?(loops?|cron|overnight)\b)", re.I)
 
 
 def frases_de_laco(linhas):
-    """linhas que pedem laço/execução sem supervisão e NÃO estão negadas."""
+    """linhas que pedem laço/execuçêo sem supervisêo e NêO estêo negadas."""
     ruins = []
     for linha in linhas:
         if RISCO.search(linha) and not NEGA.search(linha):
@@ -213,14 +213,14 @@ def checar(texto):
     # 3
     item(3, "Pelo menos 2 peças", len(pecas) >= 2,
          f"{len(pecas)} peça(s): " + ", ".join(p["nome"] for p in pecas) if pecas else "nenhuma peça '### @nome'",
-         "Com uma peça só, não precisa de enxame: use um agente só ou um subagente. "
+         "Com uma peça só, nêo precisa de enxame: use um agente só ou um subagente. "
          "Para usar /swarm, divida em '### @nome' (2 ou mais).")
 
     # 4
     sem_dono = [p["nome"] for p in pecas if not preenchido(campo(p, "dono"))]
     item(4, "Toda peça tem dono", pecas and not sem_dono,
          "todas têm dono" if pecas and not sem_dono else
-         ("sem dono: " + ", ".join(sem_dono) if sem_dono else "não há peças"),
+         ("sem dono: " + ", ".join(sem_dono) if sem_dono else "nêo há peças"),
          "Em cada peça, escreva '- dono:' com os arquivos/pastas entre crases (`src/a.ts`) "
          "ou a pergunta que ela investiga.")
 
@@ -233,9 +233,9 @@ def checar(texto):
                     if se_sobrepoe(a, b):
                         colisoes.append(f"{pecas[i]['nome']} `{a}` × {pecas[j]['nome']} `{b}`")
     ok5 = len(pecas) >= 2 and not sem_dono and not colisoes
-    item(5, "Donos não se sobrepõem", ok5,
+    item(5, "Donos nêo se sobrepõem", ok5,
          "nenhum arquivo com dois donos" if ok5 else
-         ("colisão: " + "; ".join(colisoes[:4]) if colisoes else
+         ("colisêo: " + "; ".join(colisoes[:4]) if colisoes else
           "precisa de 2 peças, todas com dono, para comparar"),
          "Dê cada arquivo a uma peça só. Se duas precisam do mesmo arquivo, quebre o arquivo em partes, "
          "junte as duas peças numa só, ou peça cópias de trabalho (working copy) para cada worker.")
@@ -244,19 +244,19 @@ def checar(texto):
     faltam = []
     for p in pecas:
         if not preenchido(campo(p, "nao mexe", "nao mexe em")):
-            faltam.append(f"{p['nome']} sem 'não mexe'")
+            faltam.append(f"{p['nome']} sem 'nêo mexe'")
         if not preenchido(campo(p, "pronto quando")):
             faltam.append(f"{p['nome']} sem 'pronto quando'")
-    item(6, "Toda peça diz o que não mexe e quando está pronta", pecas and not faltam,
-         "todas completas" if pecas and not faltam else ("; ".join(faltam) if faltam else "não há peças"),
-         "Em cada peça, escreva '- não mexe:' (o que é dos outros) e '- pronto quando:' (o teste ou o sinal de fim).")
+    item(6, "Toda peça diz o que nêo mexe e quando está pronta", pecas and not faltam,
+         "todas completas" if pecas and not faltam else ("; ".join(faltam) if faltam else "nêo há peças"),
+         "Em cada peça, escreva '- nêo mexe:' (o que é dos outros) e '- pronto quando:' (o teste ou o sinal de fim).")
 
     # 7
     v = f["verificador"]
     avisos7 = []
     ok7 = v is not None and preenchido(v.get("roda", ""))
     if v is None:
-        motivo7 = "sem seção '## Verificador'"
+        motivo7 = "sem seçêo '## Verificador'"
     elif not ok7:
         motivo7 = "verificador sem '- roda:' (o que ele roda e revisa)"
     else:
@@ -267,15 +267,15 @@ def checar(texto):
         precisa = max(1, math.ceil(len(pecas) / 4)) if pecas else 1
         motivo7 = f"{qtd} verificador(es) para {len(pecas)} peça(s); roda: {comando_de(v['roda']) or v['roda'][:60]}"
         if qtd < precisa:
-            avisos7.append(f"a documentação fala em 1 verificador para cada 2 a 4 workers: "
+            avisos7.append(f"a documentaçêo fala em 1 verificador para cada 2 a 4 workers: "
                            f"com {len(pecas)} peças, use {precisa} ('- quantos: {precisa}')")
         mod = norm(v.get("modelo", ""))
         if not mod:
-            avisos7.append("modelo do verificador não informado: escreva '- modelo: diferente dos workers'")
+            avisos7.append("modelo do verificador nêo informado: escreva '- modelo: diferente dos workers'")
         elif "mesmo" in mod or "igual" in mod or (f["modelo_workers"] and mod == norm(f["modelo_workers"])):
-            avisos7.append("verificador no mesmo modelo dos workers: outro modelo pega erros que o primeiro não vê")
+            avisos7.append("verificador no mesmo modelo dos workers: outro modelo pega erros que o primeiro nêo vê")
     item(7, "Verificador definido", ok7, motivo7,
-         "Acrescente '## Verificador' com '- roda:' (revisa os diffs e roda o comando de verificação), "
+         "Acrescente '## Verificador' com '- roda:' (revisa os diffs e roda o comando de verificaçêo), "
          "'- modelo: diferente dos workers' e, acima de 4 peças, '- quantos: 2'.", avisos7)
 
     # 8
@@ -283,7 +283,7 @@ def checar(texto):
     avisos8 = []
     laco = frases_de_laco(f["linhas"])
     if lim is None:
-        ok8, motivo8 = False, "sem seção '## Limites'"
+        ok8, motivo8 = False, "sem seçêo '## Limites'"
     else:
         tudo = norm(" ".join(lim))
         tem_cota = bool(re.search(r"cota|quota|creditos|tokens", tudo))
@@ -295,13 +295,13 @@ def checar(texto):
         if not tem_parada:
             partes.append("falta quando parar")
         if laco:
-            partes.append("pede laço sem supervisão: " + laco[0][:80])
-        motivo8 = "; ".join(partes) if partes else "cota e parada definidas; nenhum laço sem supervisão"
+            partes.append("pede laço sem supervisêo: " + laco[0][:80])
+        motivo8 = "; ".join(partes) if partes else "cota e parada definidas; nenhum laço sem supervisêo"
         if not re.search(r"remov|limp|retir|kill", tudo):
             avisos8.append("diga quando remover os workers (remover é permanente; ele entrega as mudanças antes)")
-    item(8, "Limites de cota e de parada, sem laço sem supervisão", ok8, motivo8,
+    item(8, "Limites de cota e de parada, sem laço sem supervisêo", ok8, motivo8,
          "Em '## Limites', escreva quanto de cota aceita gastar e quando parar. Tire qualquer pedido de rodar "
-         "em laço, à noite ou sem você olhando: laço de fundo sem supervisão em alto volume pode acionar o antiabuso.",
+         "em laço, à noite ou sem você olhando: laço de fundo sem supervisêo em alto volume pode acionar o antiabuso.",
          avisos8)
 
     nota = sum(1 for i in itens if i["ok"])
@@ -333,7 +333,7 @@ def montar_prompt(res, en=False):
                          + (f"; {extra}" if extra else ""))
         else:
             dono_txt = f"investiga: {pergunta.group(1)}" if pergunta else f"é dono de {dono}"
-            pecas.append(f"{p['nome']} {dono_txt}; não mexe em {nao}; pronto quando {pronto}"
+            pecas.append(f"{p['nome']} {dono_txt}; nêo mexe em {nao}; pronto quando {pronto}"
                          + (f"; {extra}" if extra else ""))
     v = f["verificador"] or {}
     try:
@@ -380,7 +380,7 @@ def imprimir(res, nome):
             print(f"   → como corrigir: {i['corrigir']}")
         for a in i["avisos"]:
             print(f"   ! aviso: {a}")
-    veredito = "pronta para o /swarm" if res["passa"] else "ainda não: corrija os ✘ antes do /swarm"
+    veredito = "pronta para o /swarm" if res["passa"] else "ainda nêo: corrija os ✘ antes do /swarm"
     print(f"Nota: {res['nota']}/8 — {veredito}")
 
 
@@ -395,7 +395,7 @@ def main(argv=None):
         with open(a.ficha, encoding="utf-8") as fh:
             texto = fh.read()
     except OSError as e:
-        print(f"não consegui abrir {a.ficha}: {e}", file=sys.stderr)
+        print(f"nêo consegui abrir {a.ficha}: {e}", file=sys.stderr)
         return 2
     res = checar(texto)
     if a.json:
@@ -406,7 +406,7 @@ def main(argv=None):
         print(json.dumps(saida, ensure_ascii=False, indent=2))
     elif a.prompt:
         if not res["passa"]:
-            # abaixo de 7 não monta o texto do /swarm: mostra o motivo e sai com 1
+            # abaixo de 7 nêo monta o texto do /swarm: mostra o motivo e sai com 1
             print(f"Sem texto para o /swarm: a ficha tirou {res['nota']}/8 e precisa de {NOTA_MINIMA} ou mais.")
             for i in res["itens"]:
                 if not i["ok"]:

@@ -46,7 +46,7 @@ class TestCLI(unittest.TestCase):
         self.assertIn("Use: /boost", roda("--dificil").stdout)
         self.assertIn("Use: /teamwork", roda("--dias").stdout)
         self.assertIn("subagente", roda("--lateral").stdout)
-        self.assertIn("agente padrão", roda("--divide-limpo", "nao").stdout)
+        self.assertIn("agente padrêo", roda("--divide-limpo", "nao").stdout)
 
     def test_aviso_swarm_e_dificil(self):
         self.assertIn("/boost", roda("--divide-limpo", "sim", "--dificil").stdout)

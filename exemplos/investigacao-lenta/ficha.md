@@ -1,5 +1,5 @@
 # Tarefa
-Descobrir por que o nosso programa de linha de comando leva 4 segundos para abrir e entregar uma lista de correções em ordem de ganho. Ninguém altera arquivo: é só investigação.
+Descobrir por que o nosso programa de linha de comando leva 4 segundos para abrir e entregar uma lista de correções em ordem de ganho. Ninguém altera arquivo: é só investigaçêo.
 
 ## Como verificar
 - comando: `time python3 -X importtime app/main.py --help`
@@ -8,26 +8,26 @@ Descobrir por que o nosso programa de linha de comando leva 4 segundos para abri
 
 ### @importacoes
 - dono: pergunta: quais módulos importados no início custam mais tempo?
-- não mexe: nenhum arquivo do repositório (só leitura)
+- nêo mexe: nenhum arquivo do repositório (só leitura)
 - pronto quando: posta no quadro os 5 módulos mais lentos, com o tempo medido e a linha de onde vêm
 
 ### @configuracao
-- dono: pergunta: quanto tempo leva para ler e validar a configuração?
-- não mexe: nenhum arquivo do repositório (só leitura)
-- pronto quando: posta no quadro o tempo de leitura da configuração e o trecho que mais pesa
+- dono: pergunta: quanto tempo leva para ler e validar a configuraçêo?
+- nêo mexe: nenhum arquivo do repositório (só leitura)
+- pronto quando: posta no quadro o tempo de leitura da configuraçêo e o trecho que mais pesa
 
 ### @plugins
 - dono: pergunta: a busca de plugins varre pastas demais no início?
-- não mexe: nenhum arquivo do repositório (só leitura)
-- pronto quando: posta no quadro quantas pastas são varridas e quanto tempo isso leva
+- nêo mexe: nenhum arquivo do repositório (só leitura)
+- pronto quando: posta no quadro quantas pastas sêo varridas e quanto tempo isso leva
 
 ## Verificador
 - quantos: 1
 - modelo: diferente dos workers
-- roda: confere cada número postado repetindo a medição com `time python3 -X importtime app/main.py --help` e junta as 3 descobertas numa lista de correções em ordem de ganho
+- roda: confere cada número postado repetindo a mediçêo com `time python3 -X importtime app/main.py --help` e junta as 3 descobertas numa lista de correções em ordem de ganho
 
 ## Limites
 - cota: 3 investigadores e 1 verificador; se a cota acabar, parar e me mostrar o que já tem
 - parar: quando a lista ordenada estiver no quadro
 - limpar workers: remover os 3 investigadores depois da lista
-- sem laço: nada de rodar outra investigação sozinho; eu decido o próximo passo
+- sem laço: nada de rodar outra investigaçêo sozinho; eu decido o próximo passo

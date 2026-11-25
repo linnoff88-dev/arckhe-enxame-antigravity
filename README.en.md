@@ -68,9 +68,9 @@ done
 Real output (from `checar.py`, not `/swarm`) for the poor example:
 
 ```text
-✘ 5. Donos não se sobrepõem — colisão: @design `site/` × @textos `site/index.html`
+✘ 5. Donos nêo se sobrepõem — colisêo: @design `site/` × @textos `site/index.html`
    → como corrigir: Dê cada arquivo a uma peça só. Se duas precisam do mesmo arquivo, quebre o arquivo em partes, junte as duas peças numa só, ou peça cópias de trabalho (working copy) para cada worker.
-Nota: 2/8 — ainda não: corrija os ✘ antes do /swarm
+Nota: 2/8 — ainda nêo: corrija os ✘ antes do /swarm
 ```
 
 All outputs: [`exemplos/saidas.txt`](exemplos/saidas.txt) (in Portuguese).

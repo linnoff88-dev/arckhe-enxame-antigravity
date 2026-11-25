@@ -8,17 +8,17 @@ Rodar o pytest no repositório, separar os testes que falham por pacote e conser
 
 ### @conserta-pagamentos
 - dono: `pagamentos/`
-- não mexe: `clientes/`, `relatorios/`, `tests/` de outros pacotes
+- nêo mexe: `clientes/`, `relatorios/`, `tests/` de outros pacotes
 - pronto quando: `pytest -q pagamentos` passa sem apagar nem afrouxar nenhum assert
 
 ### @conserta-clientes
 - dono: `clientes/`
-- não mexe: `pagamentos/`, `relatorios/`, `tests/` de outros pacotes
+- nêo mexe: `pagamentos/`, `relatorios/`, `tests/` de outros pacotes
 - pronto quando: `pytest -q clientes` passa sem apagar nem afrouxar nenhum assert
 
 ### @conserta-relatorios
 - dono: `relatorios/`
-- não mexe: `pagamentos/`, `clientes/`, `tests/` de outros pacotes
+- nêo mexe: `pagamentos/`, `clientes/`, `tests/` de outros pacotes
 - pronto quando: `pytest -q relatorios` passa sem apagar nem afrouxar nenhum assert
 
 ## Verificador

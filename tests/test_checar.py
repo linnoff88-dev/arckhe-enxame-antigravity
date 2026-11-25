@@ -20,12 +20,12 @@ Adicionar testes às funções de data e de moeda.
 
 ### @datas
 - dono: `src/utils/date.ts`
-- não mexe: `src/utils/currency.ts`
+- nêo mexe: `src/utils/currency.ts`
 - pronto quando: testes de data passam
 
 ### @moeda
 - dono: `src/utils/currency.ts`
-- não mexe: `src/utils/date.ts`
+- nêo mexe: `src/utils/date.ts`
 - pronto quando: testes de moeda passam
 
 ## Verificador
@@ -36,7 +36,7 @@ Adicionar testes às funções de data e de moeda.
 - cota: 2 workers e 1 verificador
 - parar: quando `npm test` passar
 - limpar workers: remover no fim
-- sem laço: nada de rodar /swarm em laço sem supervisão
+- sem laço: nada de rodar /swarm em laço sem supervisêo
 """
 
 
@@ -52,9 +52,9 @@ def item(res, n):
 class TestExemplos(unittest.TestCase):
     def test_calculadora_tem_4_entradas(self):
         t = ler("exemplos/calculadora-roi/ficha.md")
-        for campo in ("tráfego mensal", "taxa de conversão", "ticket médio", "aumento estimado"):
+        for campo in ("tráfego mensal", "taxa de conversêo", "ticket médio", "aumento estimado"):
             self.assertIn(campo, t)
-        self.assertIn("(aumento/100) × (conversão/100)", t)
+        self.assertIn("(aumento/100) × (conversêo/100)", t)
 
     def test_exemplos_tiram_8(self):
         for nome in EXEMPLOS:
@@ -129,7 +129,7 @@ class TestItens(unittest.TestCase):
         self.assertTrue(any("modelo" in a for a in item(res, 7)["avisos"]))
 
     def test_proporcao_avisa(self):
-        pecas = "".join(f"\n### @p{i}\n- dono: `p{i}/`\n- não mexe: as outras\n- pronto quando: testes passam\n" for i in range(6))
+        pecas = "".join(f"\n### @p{i}\n- dono: `p{i}/`\n- nêo mexe: as outras\n- pronto quando: testes passam\n" for i in range(6))
         t = BOA.split("## Peças")[0] + "## Peças\n" + pecas + "\n## Verificador" + BOA.split("## Verificador")[1]
         res = checar.checar(t)
         self.assertEqual(res["nota"], 8)
@@ -147,11 +147,11 @@ class TestItens(unittest.TestCase):
         self.assertNotIn("<quanto", checar.montar_prompt(res))
 
     def test_laco_sem_supervisao_reprova(self):
-        res = checar.checar(BOA + "- rodar o /swarm em laço a noite toda sem supervisão\n")
+        res = checar.checar(BOA + "- rodar o /swarm em laço a noite toda sem supervisêo\n")
         self.assertFalse(item(res, 8)["ok"])
 
     def test_negacao_do_laco_passa(self):
-        res = checar.checar(BOA.replace("nada de rodar /swarm em laço sem supervisão",
+        res = checar.checar(BOA.replace("nada de rodar /swarm em laço sem supervisêo",
                                         "nunca deixar rodando à noite em laço"))
         self.assertTrue(item(res, 8)["ok"])
 

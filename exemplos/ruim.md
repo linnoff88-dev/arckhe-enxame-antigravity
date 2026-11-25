@@ -12,10 +12,10 @@ Ver se ficou bom.
 
 ### @textos
 - dono: `site/index.html`
-- não mexe: nada
+- nêo mexe: nada
 
 ### @extra
-- não mexe: `site/estilo.css`
+- nêo mexe: `site/estilo.css`
 
 ## Limites
-- deixar o /swarm rodando a noite toda sem supervisão até ficar perfeito
+- deixar o /swarm rodando a noite toda sem supervisêo até ficar perfeito
