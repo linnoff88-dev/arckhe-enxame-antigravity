@@ -6,7 +6,7 @@
 </div>
 
 
-[![Ficha do Enxame](guia/assets/banner.jpg)](https://inematds.github.io/enxame-antigravity/guia/)
+[![Ficha do Enxame](guia/assets/banner.jpg)](https://linnoff88-dev.github.io/arckhe-/guia/)
 
 **ê°Å¸â¡Â§ê°Å¸â¡Â· [PortuguêÂªs](README.md) êÂ· ê°Å¸â¡Âºê°Å¸â¡Â¸ [English](README.en.md) êÂ· ê°Å¸â¡Âªê°Å¸â¡Â¸ [EspaêÂ±ol](README.es.md)**
 
@@ -18,7 +18,7 @@ VocêÂª ainda pede tudo para um agente sêÂ³? O `/swarm` do Google Antig
 
 ## ê°Å¸ââ Guia de uso
 
-Guia completo (landing + passo a passo): **https://inematds.github.io/enxame-antigravity/guia/**
+Guia completo (landing + passo a passo): **https://linnoff88-dev.github.io/arckhe-/guia/**
 
 ê°Å¸Å½Â¬ VêÂ­deo: em breve no guia.
 
@@ -89,7 +89,7 @@ Todas as saêÂ­das: [`exemplos/saidas.txt`](exemplos/saidas.txt).
 - Comandos (`/boost`, `/teamwork` e outros): https://antigravity.google/docs/slash-commands
 - `/teamwork`: https://antigravity.google/docs/teamwork
 
-Kit aberto e grêÂ¡tis do [INEMA.CLUB](https://inema.club). LicenêÂ§a MIT.
+Kit aberto e grêÂ¡tis do [ARCKHÉ AI](https://ARCKHÉ AI). LicenêÂ§a MIT.
 
 ---
 
